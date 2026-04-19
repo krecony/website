@@ -1,0 +1,5 @@
+.envrc
+.direnv
+.pre-commit-config.yaml
+public
+result
