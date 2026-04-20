@@ -1,15 +1,16 @@
 {{ define "main" }}
   {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
   <article
-    class="{{ if not .Site.Params.homepage.showRecent }}
-      h-full
-    {{ end }} flex flex-col items-center justify-center text-center">
-    <header class="flex items-center justify-around">
-      <h1 class="m-0 text-4xl font-extrabold">
+    class="flex flex-col items-center justify-center text-center">
+    <header class="grid grid-cols-2 grid-rows-5 items-center justify-around">
+      <h1 class="row-span-full m-0 text-4xl font-extrabold">
         {{ .Site.Params.Author.name | default .Site.Title }}
       </h1>
-      <h2 class="m-0 text-xl text-neutral-500 dark:text-neutral-400">
+      <h2 class="row-span-4 m-0 text-xl text-neutral-500 dark:text-neutral-400">
         {{ .Site.Params.Author.headline | markdownify }}
+      </h2>
+      <h2 class="row-span-1 m-0 text-xl text-neutral-500 dark:text-neutral-400">
+				some links
       </h2>
     </header>
     <section class="prose dark:prose-invert w-full">{{ .Content }}</section>

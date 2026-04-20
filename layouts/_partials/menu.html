@@ -1,0 +1,7 @@
+<div class="w-full flex items-center justify-center gap-x-4">
+	{{ range .Site.Menus.main }}
+		<a href="{{ .URL }}">
+			{{ .Name }}
+		</a>
+	{{ end }}
+</div>
