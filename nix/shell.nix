@@ -10,10 +10,11 @@ let
 in
 {
   default = pkgs.mkShell {
-    inherit (pre-commit-check) shellHook;
     buildInputs = pre-commit-check.enabledPackages;
     packages = with pkgs; [
       hugo
+      tailwindcss
     ];
+    shellHook = pre-commit-check.shellHook or "";
   };
 }

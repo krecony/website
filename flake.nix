@@ -44,5 +44,12 @@
           inherit system nixpkgs self;
         }
       );
+
+      apps = forAllSystems (
+        system:
+        import ./nix/apps.nix {
+          inherit system nixpkgs self;
+        }
+      );
     };
 }
