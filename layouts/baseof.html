@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <style>{{ readFile "assets/css/main.css" | safeCSS }}</style>
     <script src="https://cdn.tailwindcss.com"></script>
+		<script>{{ readFile "assets/js/tailwind.config.js"}} </script>
   </head>
-  <body>
-    <header>
-      <a href="{{ "/" | relURL }}">{{ site.Title }}</a>
-    </header>
-    <main>
-      {{ block "main" . }}{{ end }}
-    </main>
+	{{ $bodyLayout := "flex flex-col h-screen m-auto leading-7 max-w-7xl" }}
+	{{ $bodyColor := "bg-neutral"}}
+	<body class="{{ $bodyLayout }} {{ $bodyColor }}">
+		<div class="absolute flex self-center">
+			<main>
+				{{ block "main" . }}{{ end }}
+			</main>
+		</div>
   </body>
 </html>
