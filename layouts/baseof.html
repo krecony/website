@@ -13,6 +13,8 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+		<script src="https://unpkg.com/feather-icons"></script>
+
 		{{/* CSS */}}
 		{{ $cssResources := slice }}
 		{{ $schemeName := .Site.Params.colorScheme | default "avocado" }}
@@ -27,17 +29,12 @@
 			integrity="{{ $bundleCSS.Data.Integrity }}">
 
   </head>
-  {{ $bodyLayout := "flex flex-col h-screen leading-7" }}
-  {{ $pageLayout := "m-auto w-full max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32" }}
+  {{ $bodyLayout := "flex flex-col h-screen leading-7 m-auto w-full max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32" }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
 	{{ partial "menu.html" . }}
 	<body class="{{ $bodyLayout }} {{ $bodyColor }}">
-		<div class="relative flex flex-col grow">
 			<main class="grow">
-				<div class="{{ $pageLayout }}">
 					{{ block "main" . }}{{ end }}
-				</div>
 			</main>
-		</div>
   </body>
 </html>

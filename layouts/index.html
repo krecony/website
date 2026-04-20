@@ -1,17 +1,26 @@
 {{ define "main" }}
   {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
   <article
-    class="flex flex-col items-center justify-center text-center">
-    <header class="grid grid-cols-2 grid-rows-5 items-center justify-around">
-      <h1 class="row-span-full m-0 text-4xl font-extrabold">
+    class="py-[15%] flex flex-col items-center justify-center text-center">
+    <header class="flex justify-between items-center w-full max-w-[80%]">
+      <h1 class="row-span-full m-0 text-4xl font-medium">
         {{ .Site.Params.Author.name | default .Site.Title }}
       </h1>
-      <h2 class="row-span-4 m-0 text-xl text-neutral-500 dark:text-neutral-400">
-        {{ .Site.Params.Author.headline | markdownify }}
-      </h2>
-      <h2 class="row-span-1 m-0 text-xl text-neutral-500 dark:text-neutral-400">
-				some links
-      </h2>
+			<div class="flex flex-col gap-y-3">
+				<h2 class="m-0 text-xl text-neutral-500 dark:text-neutral-400">
+					{{ .Site.Params.Author.bio | markdownify }}
+				</h2>
+				<div class="m-0 text-xl text-neutral-500 dark:text-neutral-400 flex items-center justify-center gap-x-5">
+					{{ range .Site.Params.Author.links }}
+						<a href="{{ .link }}">
+							<i alt="{{ .name }}" data-feather="{{ .icon }}"></i>
+						</a>
+					{{ end }}
+					<script>
+						feather.replace()
+					</script>
+				</div>
+			</div>
     </header>
     <section class="prose dark:prose-invert w-full">{{ .Content }}</section>
   </article>

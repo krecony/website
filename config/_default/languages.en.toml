@@ -1,7 +1,11 @@
 title = "My awesome website"
 
 [params.author]
-name = "krecony"
-headline = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+name = "Mikołaj Pawłowski"
+bio = "Just a bloke who likes computers"
 links = [
+	{ name = "github", link = "https://www.github.com/krecony", icon = "github" },
+	{ name = "linkedin", link = "https://www.linkedin.com/in/miko%C5%82aj-paw%C5%82owski/", icon = "linkedin" },
+	{ name = "email", link = "mailto:pawlowski.mikolaj@proton.me", icon = "at-sign" },
+	{ name = "codeforces", link = "https://codeforces.com/profile/krecony", icon = "bar-chart-2" },
 ]
