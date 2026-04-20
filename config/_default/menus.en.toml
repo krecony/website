@@ -1,0 +1,19 @@
+[[main]]
+name = 'home'
+pageRef = 'home'
+weight = 1
+
+[[main]]
+name = 'resume'
+pageRef = 'resume'
+weight = 2
+
+[[main]]
+name = 'posts'
+pageRef = 'posts'
+weight = 3
+
+[[main]]
+name = 'projects'
+pageRef = 'projects'
+weight = 4

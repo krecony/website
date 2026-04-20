@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang | default "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <a href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+  </body>
+</html>
