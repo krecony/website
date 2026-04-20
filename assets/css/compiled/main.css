@@ -554,8 +554,8 @@ video {
   display: none;
 }
 
-.absolute {
-  position: absolute;
+.relative {
+  position: relative;
 }
 
 .m-0 {
@@ -590,6 +590,10 @@ video {
   max-width: 80rem;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -604,10 +608,6 @@ video {
 
 .justify-around {
   justify-content: space-around;
-}
-
-.self-center {
-  align-self: center;
 }
 
 .bg-neutral {
@@ -655,6 +655,14 @@ video {
 .text-neutral-900 {
   --tw-text-opacity: 1;
   color: rgb(var(--color-neutral-900) / var(--tw-text-opacity, 1));
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 .dark\:bg-neutral-800:is(.dark *) {
