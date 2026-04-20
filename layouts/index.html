@@ -4,7 +4,7 @@
     class="{{ if not .Site.Params.homepage.showRecent }}
       h-full
     {{ end }} flex flex-col items-center justify-center text-center">
-    <header class="flex w-full flex-grow items-center justify-around">
+    <header class="flex items-center justify-around">
       <h1 class="m-0 text-4xl font-extrabold">
         {{ .Site.Params.Author.name | default .Site.Title }}
       </h1>

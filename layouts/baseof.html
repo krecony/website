@@ -1,15 +1,30 @@
 <!doctype html>
-<html lang="{{ site.Language.Lang | default "en" }}">
+<html
+  lang="{{ site.Language.Lang | default "en" }}"
+  data-default-appearance="dark"
+  data-auto-appearance="true">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
-    <style>{{ readFile "assets/css/main.css" | safeCSS }}</style>
-    <script src="https://cdn.tailwindcss.com"></script>
-		<script>{{ readFile "assets/js/tailwind.config.js"}} </script>
+    <script>{{ readFile "assets/js/appearance.js" | safeJS }}</script>
+
+		{{/* CSS */}}
+		{{ $cssResources := slice }}
+		{{ $schemeName := .Site.Params.colorScheme | default "avocado" }}
+		{{ $cssScheme := resources.Get (printf "css/schemes/%s.css" (lower $schemeName)) | default (resources.Get "css/schemes/avocado.css") }}
+		{{ $cssResources = $cssResources | append $cssScheme }}
+		{{ $cssResources = $cssResources | append (resources.Get "css/compiled/main.css") }}
+		{{ $bundleCSS := $cssResources | resources.Concat "css/main.bundle.css" | resources.Minify }}
+		<link
+			type="text/css"
+			rel="stylesheet"
+			href="{{ $bundleCSS.RelPermalink }}"
+			integrity="{{ $bundleCSS.Data.Integrity }}">
+
   </head>
-	{{ $bodyLayout := "flex flex-col h-screen m-auto leading-7 max-w-7xl" }}
-	{{ $bodyColor := "bg-neutral"}}
+  {{ $bodyLayout := "flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32" }}
+  {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
 	<body class="{{ $bodyLayout }} {{ $bodyColor }}">
 		<div class="absolute flex self-center">
 			<main>
