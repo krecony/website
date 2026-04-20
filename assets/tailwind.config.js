@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+			fontFamily: {
+				sans: ["Saira", "sans-serif"],
+			},
       colors: {
         neutral: {
           DEFAULT: "rgb(var(--color-neutral) / <alpha-value>)",

@@ -9,6 +9,10 @@
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
     <script>{{ readFile "assets/js/appearance.js" | safeJS }}</script>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 		{{/* CSS */}}
 		{{ $cssResources := slice }}
 		{{ $schemeName := .Site.Params.colorScheme | default "avocado" }}
