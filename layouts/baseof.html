@@ -30,9 +30,9 @@
   </head>
   {{ $bodyLayout := "flex flex-col h-screen leading-7 m-auto w-full px-6 sm:px-14 md:px-24 lg:px-32" }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
-	{{ partial "menu.html" . }}
 	<body class="{{ $bodyLayout }} {{ $bodyColor }}">
-			<main class="grow">
+			{{ partial "menu.html" . }}
+			<main class="grow min-h-0 overflow-hidden">
 					{{ block "main" . }}{{ end }}
 			</main>
   </body>

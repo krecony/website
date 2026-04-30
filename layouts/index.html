@@ -1,14 +1,14 @@
 {{ define "main" }}
   {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
-	<div class="flex font-mono w-full h-full items-center overflow-hidden">
-    <div class="flex flex-col justify-center items-center text-center w-full max-w-[25%]">
-      <h1 class="m-0 text-4xl font-medium">
+	<div class="flex w-full h-full items-center overflow-hidden justify-around">
+    <div class="font-mono flex flex-col justify-center items-center text-center">
+      <h1 class="text-4xl font-medium">
         {{ .Site.Params.Author.name | default .Site.Title }}
       </h1>
-			<h2 class="m-0 text-neutral-500 dark:text-neutral-400 w-full">
+			<h2 class="text-neutral-500 dark:text-neutral-400 w-full mt-2 mb-3">
 				{{ .Site.Params.Author.bio | markdownify }}
 			</h2>
-			<div class="m-0 text-neutral-500 dark:text-neutral-400 flex items-center justify-center gap-x-5">
+			<div class="text-neutral-500 dark:text-neutral-400 flex items-center justify-center gap-x-5">
 				{{ range .Site.Params.Author.links }}
 					<a href="{{ .link }}">
 						<i alt="{{ .name }}" data-feather="{{ .icon }}"></i>
@@ -19,8 +19,6 @@
 				</script>
 			</div>
     </div>
-		<div class="w-full h-full">
-			{{ partial "boids.html" . }}
-		</div>
+		{{ partial "boids.html" . }}
 	</div>
 {{ end }}
