@@ -8,6 +8,7 @@ module.exports = {
     extend: {
 			fontFamily: {
 				sans: ["Saira", "sans-serif"],
+				monospace: ["Jetbrains Mono", "monospace"],
 			},
       colors: {
         neutral: {
