@@ -566,12 +566,40 @@ video {
   margin: auto;
 }
 
+.mr-\[15\%\] {
+  margin-right: 15%;
+}
+
+.mt-\[15\%\] {
+  margin-top: 15%;
+}
+
+.mt-\[10\%\] {
+  margin-top: 10%;
+}
+
+.mt-\[5\%\] {
+  margin-top: 5%;
+}
+
+.mt-\[25\%\] {
+  margin-top: 25%;
+}
+
+.mt-\[20\%\] {
+  margin-top: 20%;
+}
+
 .block {
   display: block;
 }
 
 .flex {
   display: flex;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-screen {
@@ -582,16 +610,36 @@ video {
   width: 100%;
 }
 
-.max-w-7xl {
-  max-width: 80rem;
-}
-
 .max-w-\[50\%\] {
   max-width: 50%;
 }
 
-.max-w-\[80\%\] {
-  max-width: 80%;
+.max-w-\[5\%\] {
+  max-width: 5%;
+}
+
+.max-w-\[10\%\] {
+  max-width: 10%;
+}
+
+.max-w-\[20\%\] {
+  max-width: 20%;
+}
+
+.max-w-\[30\%\] {
+  max-width: 30%;
+}
+
+.max-w-\[35\%\] {
+  max-width: 35%;
+}
+
+.max-w-\[40\%\] {
+  max-width: 40%;
+}
+
+.max-w-\[25\%\] {
+  max-width: 25%;
 }
 
 .grow {
@@ -636,11 +684,6 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.py-\[15\%\] {
-  padding-top: 15%;
-  padding-bottom: 15%;
 }
 
 .text-left {
