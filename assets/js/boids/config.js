@@ -32,6 +32,15 @@ let g = {
 	boid_count: 1000,
 
 	fps: 60,
+
+	circle: {
+		boundary: true,
+		radius: 0,
+		center: {
+			x: 0,
+			y: 0,
+		},
+	}
 }
 
 g.protected_range_sq = g.protected_range * g.protected_range

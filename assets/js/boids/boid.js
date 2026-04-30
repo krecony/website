@@ -6,8 +6,17 @@
 
 class Boid {
 	constructor() {
-		this.x = rand(g.width)
-		this.y = rand(g.height)
+		if(g.circle.boundary) {
+			const angle = rand(0, 2 * Math.PI)
+			const dist = rand(0, g.circle.radius)
+
+			this.x = Math.cos(angle) * dist + g.circle.center.x
+			this.y = Math.sin(angle) * dist + g.circle.center.y
+		}
+		else {
+			this.x = rand(g.width)
+			this.y = rand(g.height)
+		}
 
 		this.vx = rand(g.minVel, g.maxVel)
 		this.vy = rand(g.minVel, g.maxVel)
@@ -78,18 +87,8 @@ class Boid {
 		this.vy += close_dy * g.avoid_factor
 
 		// turning
-		if(this.x < g.margin) {
-			this.vx = this.vx + g.turn_factor
-		}
-		if(this.x > g.width - g.margin) {
-			this.vx = this.vx - g.turn_factor
-		}
-		if(this.y < g.margin) {
-			this.vy = this.vy + g.turn_factor
-		}
-		if(this.y > g.height - g.margin) {
-			this.vy = this.vy - g.turn_factor
-		}
+		if(g.circle.boundary) this.turnCircle()
+		else this.turnRectangle()
 
 		// going towards mouse
 		if(g.mouse.down && g.mouse.over) {
@@ -143,5 +142,41 @@ class Boid {
     ctx.fill();
 
     ctx.restore();
+	}
+
+	turnRectangle() {
+		if(this.x < g.margin) {
+			this.vx = this.vx + g.turn_factor
+		}
+		if(this.x > g.width - g.margin) {
+			this.vx = this.vx - g.turn_factor
+		}
+		if(this.y < g.margin) {
+			this.vy = this.vy + g.turn_factor
+		}
+		if(this.y > g.height - g.margin) {
+			this.vy = this.vy - g.turn_factor
+		}
+	}
+
+	turnCircle() {
+		 const dx_origin = this.x - g.circle.center.x
+		 const dy_origin = this.y - g.circle.center.y
+
+		 const dist_to_origin = Math.sqrt(dx_origin * dx_origin + dy_origin * dy_origin)
+		 const dist_to_edge = g.circle.radius - dist_to_origin
+
+		 if(dist_to_edge <= g.margin) {
+			 this.vx -= g.turn_factor * dx_origin / dist_to_origin
+			 this.vy -= g.turn_factor * dy_origin / dist_to_origin
+		 }
+		 else {
+			 this.vx -= g.turn_factor * dx_origin / dist_to_origin / 3
+			 this.vy -= g.turn_factor * dy_origin / dist_to_origin / 3
+		 }
+		 if(dist_to_origin <= g.circle.radius / 3) {
+			 this.vx += g.turn_factor * dx_origin / dist_to_origin / 5
+			 this.vy += g.turn_factor * dy_origin / dist_to_origin / 5
+		 }
 	}
 }

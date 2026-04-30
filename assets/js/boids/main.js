@@ -14,6 +14,10 @@ function resizeCanvas() {
 	canvas.width = Math.floor(width * dpr);
 	canvas.height = Math.floor(height * dpr);
 
+	g.circle.center.x = g.width / 2
+	g.circle.center.y = g.height / 2
+	g.circle.radius = Math.min(g.width, g.height) * 0.4
+
 	ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 	if (flock) flock.resize();
 }
