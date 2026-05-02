@@ -1,0 +1,52 @@
+(() => {
+	const root = document.documentElement;
+	root.dataset.navDirection = root.dataset.navDirection || "rtl";
+
+	const normalizePath = (pathname) => {
+		const trimmed = pathname.replace(/\/+$/, "");
+		return trimmed === "" ? "/" : trimmed;
+	};
+
+	const findOrderForPath = (pathname) => {
+		const targetPath = normalizePath(pathname);
+		const links = document.querySelectorAll("a[data-nav-order]");
+		for (const anchor of links) {
+			const hrefPath = normalizePath(new URL(anchor.href, window.location.href).pathname);
+			if (hrefPath === targetPath) {
+				const order = Number(anchor.dataset.navOrder);
+				return Number.isFinite(order) ? order : NaN;
+			}
+		}
+		return NaN;
+	};
+
+	document.addEventListener("click", (event) => {
+		const link = event.target.closest("a[data-nav-order]");
+		if (!link) return;
+		if (event.defaultPrevented || event.button !== 0) return;
+		if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+		const targetUrl = new URL(link.href, window.location.href);
+		const currentUrl = new URL(window.location.href);
+
+		if (targetUrl.origin !== currentUrl.origin) return;
+
+		const isSamePath = normalizePath(targetUrl.pathname) === normalizePath(currentUrl.pathname);
+		const isSameSearch = targetUrl.search === currentUrl.search;
+		const isSameHash = targetUrl.hash === currentUrl.hash || targetUrl.hash === "";
+
+		if (isSamePath && isSameSearch && isSameHash) {
+			event.preventDefault();
+			event.stopPropagation();
+			return;
+		}
+
+		const targetOrder = Number(link.dataset.navOrder);
+		const currentOrder = findOrderForPath(currentUrl.pathname);
+
+		if (Number.isFinite(targetOrder) && Number.isFinite(currentOrder)) {
+			if (targetOrder < currentOrder) root.dataset.navDirection = "ltr";
+			if (targetOrder > currentOrder) root.dataset.navDirection = "rtl";
+		}
+	}, true);
+})();

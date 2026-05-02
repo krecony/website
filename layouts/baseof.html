@@ -14,6 +14,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<script src="https://unpkg.com/feather-icons"></script>
 
+		<script src="https://unpkg.com/htmx.org@2.0.10/dist/htmx.min.js"></script>
+
 		{{/* CSS */}}
 		{{ $cssResources := slice }}
 		{{ $schemeName := .Site.Params.colorScheme | default "avocado" }}
@@ -28,12 +30,22 @@
 			integrity="{{ $bundleCSS.Data.Integrity }}">
 
   </head>
-  {{ $bodyLayout := "flex flex-col h-screen leading-7 m-auto w-full px-6 sm:px-14 md:px-24 lg:px-32" }}
+  {{ $bodyLayout := "flex flex-col h-screen leading-7 w-full" }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
-	<body class="{{ $bodyLayout }} {{ $bodyColor }}">
-			{{ partial "menu.html" . }}
-			<main class="grow min-h-0 overflow-hidden">
-					{{ block "main" . }}{{ end }}
-			</main>
+	<body
+		class="{{ $bodyLayout }} {{ $bodyColor }}"
+		hx-boost="true"
+		hx-target="#page"
+		hx-select="#page"
+		hx-swap="outerHTML transition:true">
+			<div id="page" class="flex flex-col grow min-h-0 w-full">
+				<div class="flex flex-col grow min-h-0 px-6 sm:px-14 md:px-24 lg:px-32">
+					{{ partial "menu.html" . }}
+					<main class="grow min-h-0 overflow-hidden">
+						{{ block "main" . }}{{ end }}
+					</main>
+				</div>
+</div>
+			<script>{{ readFile "assets/js/movement.js" | safeJS }}</script>
   </body>
 </html>
