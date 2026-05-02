@@ -1,7 +1,14 @@
 <div class="w-full flex items-center justify-center gap-x-4 mt-1 font-mono">
-	{{ range .Site.Menus.main }}
-		<a href="{{ .URL }}">
-			{{ .Name }}
+	{{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
+	{{ range $i, $item := .Site.Menus.main }}
+		{{ $itemURL := $item.URL | relURL }}
+		{{ $itemPath := strings.TrimSuffix "/" $itemURL }}
+		{{ $isCurrent := eq $itemPath $currentPath }}
+		<a
+			href="{{ $itemURL }}"
+			data-nav-order="{{ $i }}"
+			data-nav-current="{{ if $isCurrent }}true{{ else }}false{{ end }}">
+			{{ $item.Name }}
 		</a>
 	{{ end }}
 </div>
