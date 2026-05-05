@@ -1,6 +1,7 @@
 {
   inputs = {
     nipxkgs.url = "nixpkgs/nixos-unstable";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +13,7 @@
       self,
       nixpkgs,
       git-hooks,
+      treefmt-nix,
       ...
     }:
     let
@@ -23,9 +25,13 @@
         "x86_64-linux"
       ];
 
+      treefmtEval = forAllSystems (
+        system: import ./nix/format.nix nixpkgs.legacyPackages.${system} treefmt-nix
+      );
     in
     {
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+
       checks = forAllSystems (
         system:
         import ./nix/checks.nix {
@@ -34,6 +40,7 @@
             self
             git-hooks
             lib
+            treefmtEval
             ;
         }
       );
