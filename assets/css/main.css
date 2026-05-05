@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* dark mode */
+
 html:not(.dark) {
   color-scheme: light;
 }
@@ -9,6 +11,8 @@ html:not(.dark) {
 html.dark {
   color-scheme: dark;
 }
+
+/* htmx transitions */
 
 :root {
 	--page-transition-duration: 500ms;
@@ -98,3 +102,4 @@ html[data-nav-direction="rtl"]::view-transition-new(page) {
     transform: translateX(0);
   }
 }
+
