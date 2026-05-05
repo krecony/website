@@ -6,10 +6,12 @@
 
 html:not(.dark) {
   color-scheme: light;
+  --boid-color: rgb(var(--color-neutral-800));
 }
 
 html.dark {
   color-scheme: dark;
+  --boid-color: rgb(var(--color-neutral-100));
 }
 
 /* htmx transitions */

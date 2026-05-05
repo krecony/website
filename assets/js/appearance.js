@@ -27,3 +27,21 @@ if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
       }
     });
 }
+
+const darkModeButton = document.getElementById("mode-button");
+const darkModeIcon = document.getElementById("mode-icon-moon");
+const lightModeIcon = document.getElementById("mode-icon-sun");
+
+const updateIcon = () => {
+  const darkMode = document.documentElement.classList.contains("dark");
+
+  darkModeIcon.classList.toggle("hidden", !darkMode);
+  lightModeIcon.classList.toggle("hidden", darkMode);
+};
+
+darkModeButton.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark");
+  updateIcon();
+});
+
+updateIcon();

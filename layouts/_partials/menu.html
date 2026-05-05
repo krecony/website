@@ -9,5 +9,13 @@
        data-nav-order="{{ $i }}"
        class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
     {{ end }}
+    <button id="mode-button">
+      <i id="mode-icon-moon"
+         data-feather="moon"
+         class="mb-1 h-[1.3rem] w-[1.3rem]"></i>
+      <i id="mode-icon-sun"
+         data-feather="sun"
+         class="hidden mb-1 h-[1.3rem] w-[1.3rem]"></i>
+    </button>
   </nav>
 </div>
