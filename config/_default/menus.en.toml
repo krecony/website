@@ -4,8 +4,8 @@ pageRef = '/'
 weight = 1
 
 [[main]]
-name = 'resume'
-pageRef = '/resume'
+name = 'portfolio'
+pageRef = '/portfolio'
 weight = 2
 
 [[main]]
