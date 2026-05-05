@@ -20,6 +20,17 @@
 		return NaN;
 	};
 
+	const syncCurrentNavUnderline = () => {
+		const currentPath = normalizePath(window.location.pathname);
+		const links = document.querySelectorAll("a[data-nav-order]");
+		for (const link of links) {
+			const linkPath = normalizePath(new URL(link.href, window.location.href).pathname);
+			const isCurrent = linkPath === currentPath;
+			link.classList.toggle("underline", isCurrent);
+			link.classList.toggle("no-underline", !isCurrent);
+		}
+	};
+
 	document.addEventListener("click", (event) => {
 		const link = event.target.closest("a[data-nav-order]");
 		if (!link) return;
@@ -50,10 +61,15 @@
 		}
 	}, true);
 
+	document.addEventListener("DOMContentLoaded", syncCurrentNavUnderline);
+
 	document.addEventListener("htmx:afterSwap", (event) => {
 		const isBoosted = Boolean(event.detail?.requestConfig?.boosted);
 		const swappedPage = event.detail?.target?.id === "page";
 		if (!isBoosted || !swappedPage) return;
+		syncCurrentNavUnderline();
 		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 	});
+
+	document.addEventListener("htmx:historyRestore", syncCurrentNavUnderline);
 })();

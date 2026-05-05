@@ -8,7 +8,7 @@
 			<a
 				href="{{ $itemURL }}"
 				data-nav-order="{{ $i }}"
-				data-nav-current="{{ if $isCurrent }}true{{ else }}false{{ end }}">
+				class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">
 				{{ $item.Name }}
 			</a>
 		{{ end }}
