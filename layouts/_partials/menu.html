@@ -1,4 +1,4 @@
-<div class="sticky top-0 py-1 z-10 w-full backdrop-blur-md">
+<div class="py-1 w-full backdrop-blur-md fixed top-0 z-50">
 	<nav class="flex items-center justify-center gap-x-4 font-mono">
 		{{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
 		{{ range $i, $item := .Site.Menus.main }}

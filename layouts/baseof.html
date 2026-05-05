@@ -34,7 +34,7 @@
 		{{ end }}
 
   </head>
-  {{ $bodyLayout := "flex flex-col min-h-screen leading-7 w-full" }}
+  {{ $bodyLayout := "flex flex-col h-screen leading-7 w-full" }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
 	<body
 		class="{{ $bodyLayout }} {{ $bodyColor }}"
@@ -43,7 +43,7 @@
 		hx-select="#page"
 		hx-swap="outerHTML transition:true show:none">
 			{{ partial "menu.html" . }}
-			<div id="page" class="flex flex-col grow min-h-0 w-full">
+			<div id="page" class="flex flex-col grow min-h-0 w-full pt-[2.25rem]">
 				<div class="flex flex-col grow min-h-0 px-6 sm:px-14 md:px-24 lg:px-32">
 					<main class="grow min-h-0">
 						{{ block "main" . }}{{ end }}
