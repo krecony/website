@@ -31,6 +31,19 @@
 		}
 	};
 
+	const syncMathJax = () => {
+		const page = document.getElementById("page");
+		if (!page || !window.MathJax || typeof window.MathJax.typesetPromise !== "function") return;
+
+		if (typeof window.MathJax.typesetClear === "function") {
+			window.MathJax.typesetClear([page]);
+		}
+
+		window.MathJax.typesetPromise([page]).catch((error) => {
+			console.error("MathJax typeset failed:", error);
+		});
+	};
+
 	document.addEventListener("click", (event) => {
 		const link = event.target.closest("a[data-nav-order]");
 		if (!link) return;
@@ -61,15 +74,22 @@
 		}
 	}, true);
 
-	document.addEventListener("DOMContentLoaded", syncCurrentNavUnderline);
+	document.addEventListener("DOMContentLoaded", () => {
+		syncCurrentNavUnderline();
+		syncMathJax();
+	});
 
 	document.addEventListener("htmx:afterSwap", (event) => {
 		const isBoosted = Boolean(event.detail?.requestConfig?.boosted);
 		const swappedPage = event.detail?.target?.id === "page";
 		if (!isBoosted || !swappedPage) return;
 		syncCurrentNavUnderline();
+		syncMathJax();
 		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 	});
 
-	document.addEventListener("htmx:historyRestore", syncCurrentNavUnderline);
+	document.addEventListener("htmx:historyRestore", () => {
+		syncCurrentNavUnderline();
+		syncMathJax();
+	});
 })();
