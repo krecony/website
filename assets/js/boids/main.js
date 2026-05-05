@@ -6,6 +6,7 @@
   let canvas = null;
   let ctx = null;
   let flock = null;
+  let themeObserver = null;
   let last = 0;
   const onMouseOver = () => {
     g.mouse.over = true;
@@ -91,6 +92,25 @@
     rafId = requestAnimationFrame(animate);
   }
 
+  function updateBoidColor() {
+    const cssColor = getComputedStyle(document.documentElement)
+      .getPropertyValue("--boid-color")
+      .trim();
+
+    g.boid_color = cssColor || "#000";
+  }
+
+  function startThemeSync() {
+    if (themeObserver) return;
+
+    updateBoidColor();
+    themeObserver = new MutationObserver(updateBoidColor);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+
   function startLoop() {
     if (rafId !== null) return;
     last = 0;
@@ -142,6 +162,8 @@
   }
 
   function syncBoids() {
+    startThemeSync();
+
     const nextCanvas = document.getElementById("bird_canvas");
     if (!nextCanvas) {
       detachCanvas();

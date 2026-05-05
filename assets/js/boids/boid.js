@@ -135,7 +135,7 @@ class Boid {
 
     ctx.closePath();
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = g.boid_color;
     ctx.fill();
 
     ctx.restore();
