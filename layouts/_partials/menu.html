@@ -1,14 +1,16 @@
-<div class="w-full flex items-center justify-center gap-x-4 mt-1 font-mono">
-	{{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
-	{{ range $i, $item := .Site.Menus.main }}
-		{{ $itemURL := $item.URL | relURL }}
-		{{ $itemPath := strings.TrimSuffix "/" $itemURL }}
-		{{ $isCurrent := eq $itemPath $currentPath }}
-		<a
-			href="{{ $itemURL }}"
-			data-nav-order="{{ $i }}"
-			data-nav-current="{{ if $isCurrent }}true{{ else }}false{{ end }}">
-			{{ $item.Name }}
-		</a>
-	{{ end }}
+<div class="sticky top-0 py-1 z-10 w-full backdrop-blur-md">
+	<nav class="flex items-center justify-center gap-x-4 font-mono">
+		{{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
+		{{ range $i, $item := .Site.Menus.main }}
+			{{ $itemURL := $item.URL | relURL }}
+			{{ $itemPath := strings.TrimSuffix "/" $itemURL }}
+			{{ $isCurrent := eq $itemPath $currentPath }}
+			<a
+				href="{{ $itemURL }}"
+				data-nav-order="{{ $i }}"
+				data-nav-current="{{ if $isCurrent }}true{{ else }}false{{ end }}">
+				{{ $item.Name }}
+			</a>
+		{{ end }}
+	</nav>
 </div>
