@@ -1,37 +1,32 @@
 {{ $cols := split (.Attributes.cols | default "") "," }}
-
-<table
-  {{ range $k, $v := .Attributes }}
-    {{ if ne $k "cols" }}
-      {{ printf `%s="%s"` $k $v | safeHTMLAttr }}
-    {{ end }}
-  {{ end }}
->
+<table {{ range $k, $v := .Attributes }}
+       {{ if ne $k "cols" }}
+       {{ printf `%s="%s"` $k $v | safeHTMLAttr }}
+       {{ end }}
+       {{ end }}>
   {{ if $cols }}
-    <colgroup>
-      {{ range $cols }}
-        <col style="width: {{ . }}">
-      {{ end }}
-    </colgroup>
+  <colgroup>
+    {{ range $cols }}
+    <col style="width: {{ . }}">
+    {{ end }}
+  </colgroup>
   {{ end }}
-
   <thead>
     {{ range .THead }}
-      <tr>
-        {{ range . }}
-          <th>{{ .Text }}</th>
-        {{ end }}
-      </tr>
+    <tr>
+      {{ range . }}
+      <th>{{ .Text }}</th>
+      {{ end }}
+    </tr>
     {{ end }}
   </thead>
-
   <tbody>
     {{ range .TBody }}
-      <tr>
-        {{ range . }}
-          <td>{{ .Text }}</td>
-        {{ end }}
-      </tr>
+    <tr>
+      {{ range . }}
+      <td>{{ .Text }}</td>
+      {{ end }}
+    </tr>
     {{ end }}
   </tbody>
 </table>

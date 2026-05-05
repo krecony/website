@@ -1,15 +1,8 @@
-<div class="techstack-track overflow-hidden cursor-grab [&.is-dragging]:cursor-grabbing select-none relative w-full mr-3" data-marquee>
+<div class="techstack-track overflow-hidden cursor-grab [&.is-dragging]:cursor-grabbing select-none relative w-full mr-3"
+     data-marquee>
   <div class="techstack-lane w-max flex will-change-transform gap-2">
     {{ range .Params }}
-      <div class="techstack-item py-1">
-        {{ . }}
-      </div>
+    <div class="techstack-item py-1">{{ . }}</div>
     {{ end }}
   </div>
 </div>
-
-
-
-
-
-

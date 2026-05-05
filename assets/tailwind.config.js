@@ -1,18 +1,13 @@
 module.exports = {
   darkMode: "class",
-  content: [
-    "./layouts/**/*.html",
-    "./content/**/*.{md,html}",
-  ],
-	plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  content: ["./layouts/**/*.html", "./content/**/*.{md,html}"],
+  plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
-			fontFamily: {
-				sans: ["Saira", "sans-serif"],
-				monospace: ["Jetbrains Mono", "monospace"],
-			},
+      fontFamily: {
+        sans: ["Saira", "sans-serif"],
+        monospace: ["Jetbrains Mono", "monospace"],
+      },
       colors: {
         neutral: {
           DEFAULT: "rgb(var(--color-neutral) / <alpha-value>)",

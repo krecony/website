@@ -1,27 +1,23 @@
 {{ define "main" }}
-	<div class="mt-[3rem] font-mono flex justify-center">
-		{{ if .Param "construction" }}
-			<div class="mt-10 flex flex-col gap-5 items-center">
-				{{ with resources.Get "img/jackhammer.gif" }}
-					<img src="{{ .RelPermalink }}">
-				{{ end }}
-				<h1 class="text-2xl font-extrabold">
-					sorry this page isn't built yet
-				</h1>
-			</div>
-		{{ else }}
-			<article class="w-[70%]">
-				<div class="">
-					<header class="max-w-prose my-5">
-						<h1 class="text-4xl font-extrabold">
-							{{ .Title }}
-						</h1>
-					</header>
-					<section class="prose dark:prose-invert max-w-full">
-						{{ .Content }}
-					</section>
-				</div>
-			<article>
-		{{ end }}
-	</div>
-{{ end }}
+<div class="mt-[3rem] font-mono flex justify-center">
+  {{ if .Param "construction" }}
+  <div class="mt-10 flex flex-col gap-5 items-center">
+    {{ with resources.Get "img/jackhammer.gif" }}
+    <img src="{{ .RelPermalink }}">
+    {{ end }}
+    <h1 class="text-2xl font-extrabold">sorry this page isn't built yet</h1>
+  </div>
+{{ else }}
+  <article class="w-[70%]">
+    <div class="">
+      <header class="max-w-prose my-5">
+        <h1 class="text-4xl font-extrabold">{{ .Title }}</h1>
+      </header>
+      <section class="prose dark:prose-invert max-w-full">
+        {{ .Content }}
+      </section>
+    </div>
+    <article>
+      {{ end }}
+    </div>
+    {{ end }}

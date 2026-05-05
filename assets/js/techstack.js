@@ -1,7 +1,7 @@
 document.querySelectorAll("[data-marquee]").forEach((track) => {
   const lane = track.querySelector(".techstack-lane");
 
-	const containerWidth = track.offsetWidth;
+  const containerWidth = track.offsetWidth;
 
   let isDown = false;
   let startX = 0;
@@ -9,37 +9,37 @@ document.querySelectorAll("[data-marquee]").forEach((track) => {
   let velocity = 0;
   let lastX = 0;
 
-	function ensureCoverage() {
-		const items = Array.from(lane.children);
-		let totalWidth = lane.scrollWidth;
+  function ensureCoverage() {
+    const items = Array.from(lane.children);
+    let totalWidth = lane.scrollWidth;
 
-		while (totalWidth < containerWidth * 2) {
-			items.forEach((node) => {
-				lane.appendChild(node.cloneNode(true));
-			});
-			totalWidth = lane.scrollWidth;
-		}
-	}
+    while (totalWidth < containerWidth * 2) {
+      items.forEach((node) => {
+        lane.appendChild(node.cloneNode(true));
+      });
+      totalWidth = lane.scrollWidth;
+    }
+  }
 
   const speed = 0.5;
-	function animate() {
-		if (!isDown) {
-			currentX += speed;
-		}
+  function animate() {
+    if (!isDown) {
+      currentX += speed;
+    }
 
-		const halfWidth = lane.scrollWidth / 2;
+    const halfWidth = lane.scrollWidth / 2;
 
-		const x = ((currentX % halfWidth) + halfWidth) % halfWidth;
+    const x = ((currentX % halfWidth) + halfWidth) % halfWidth;
 
-		lane.style.transform = `translateX(${-x}px)`;
+    lane.style.transform = `translateX(${-x}px)`;
 
-		requestAnimationFrame(animate);
-	}
+    requestAnimationFrame(animate);
+  }
 
-	ensureCoverage()
+  ensureCoverage();
   animate();
 
-	window.addEventListener("resize", ensureCoverage);
+  window.addEventListener("resize", ensureCoverage);
 
   track.addEventListener("mousedown", (e) => {
     isDown = true;

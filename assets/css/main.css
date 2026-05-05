@@ -15,7 +15,7 @@ html.dark {
 /* htmx transitions */
 
 :root {
-	--page-transition-duration: 500ms;
+  --page-transition-duration: 500ms;
 }
 
 body {
@@ -102,4 +102,3 @@ html[data-nav-direction="rtl"]::view-transition-new(page) {
     transform: translateX(0);
   }
 }
-

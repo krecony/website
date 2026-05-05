@@ -1,7 +1,12 @@
-const sitePreference = document.documentElement.getAttribute("data-default-appearance");
+const sitePreference = document.documentElement.getAttribute(
+  "data-default-appearance",
+);
 const userPreference = localStorage.getItem("appearance");
 
-if ((sitePreference === "dark" && userPreference === null) || userPreference === "dark") {
+if (
+  (sitePreference === "dark" && userPreference === null) ||
+  userPreference === "dark"
+) {
   document.documentElement.classList.add("dark");
 }
 
@@ -14,9 +19,11 @@ if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
     document.documentElement.classList.add("dark");
   }
 
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-    if (localStorage.getItem("appearance") === null) {
-      document.documentElement.classList.toggle("dark", event.matches);
-    }
-  });
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      if (localStorage.getItem("appearance") === null) {
+        document.documentElement.classList.toggle("dark", event.matches);
+      }
+    });
 }

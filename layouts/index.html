@@ -1,21 +1,17 @@
 {{ define "main" }}
-  {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
-	<div class="flex w-full h-full items-center overflow-hidden justify-around">
-    <div class="font-mono flex flex-col justify-center items-center text-center">
-      <h1 class="text-4xl font-medium">
-        {{ .Site.Params.Author.name | default .Site.Title }}
-      </h1>
-			<h2 class="text-neutral-500 dark:text-neutral-400 w-full mt-2 mb-3">
-				{{ .Site.Params.Author.bio | markdownify }}
-			</h2>
-			<div class="text-neutral-500 dark:text-neutral-400 flex items-center justify-center gap-x-5">
-				{{ range .Site.Params.Author.links }}
-					<a href="{{ .link }}">
-						<i alt="{{ .name }}" data-feather="{{ .icon }}"></i>
-					</a>
-				{{ end }}
-			</div>
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+<div class="flex w-full h-full items-center overflow-hidden justify-around">
+  <div class="font-mono flex flex-col justify-center items-center text-center">
+    <h1 class="text-4xl font-medium">{{ .Site.Params.Author.name | default .Site.Title }}</h1>
+    <h2 class="text-neutral-500 dark:text-neutral-400 w-full mt-2 mb-3">{{ .Site.Params.Author.bio | markdownify }}</h2>
+    <div class="text-neutral-500 dark:text-neutral-400 flex items-center justify-center gap-x-5">
+      {{ range .Site.Params.Author.links }}
+      <a href="{{ .link }}">
+        <i alt="{{ .name }}" data-feather="{{ .icon }}"></i>
+      </a>
+      {{ end }}
     </div>
-		{{ partial "boids.html" . }}
-	</div>
+  </div>
+  {{ partial "boids.html" . }}
+</div>
 {{ end }}

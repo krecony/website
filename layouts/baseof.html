@@ -1,63 +1,54 @@
-<!doctype html>
-<html
-  lang="{{ site.Language.Lang | default "en" }}"
-  data-default-appearance="dark"
-  data-auto-appearance="true">
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang | default "en" }}"
+      data-default-appearance="dark"
+      data-auto-appearance="true">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
     <script>{{ readFile "assets/js/appearance.js" | safeJS }}</script>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<script src="https://unpkg.com/feather-icons"></script>
-
-		<script src="https://unpkg.com/htmx.org@2.0.10/dist/htmx.min.js"></script>
-
-		{{/* CSS */}}
-		{{ $cssResources := slice }}
-		{{ $schemeName := .Site.Params.colorScheme | default "avocado" }}
-		{{ $cssScheme := resources.Get (printf "css/schemes/%s.css" (lower $schemeName)) | default (resources.Get "css/schemes/avocado.css") }}
-		{{ $cssResources = $cssResources | append $cssScheme }}
-		{{ $cssResources = $cssResources | append (resources.Get "css/compiled/main.css") }}
-		{{ $bundleCSS := $cssResources | resources.Concat "css/main.bundle.css" | resources.Minify }}
-		<link
-			type="text/css"
-			rel="stylesheet"
-			href="{{ $bundleCSS.RelPermalink }}"
-			integrity="{{ $bundleCSS.Data.Integrity }}">
-
-		{{ if .Param "math" }}
-			{{ partialCached "math.html" . }}
-		{{ end }}
-
-  </head>
-  {{ $bodyLayout := "flex flex-col h-screen leading-7 w-full" }}
-  {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
-	<body
-		class="{{ $bodyLayout }} {{ $bodyColor }}"
-		hx-boost="true"
-		hx-target="#page"
-		hx-select="#page"
-		hx-swap="outerHTML transition:true show:none">
-			{{ partial "menu.html" . }}
-			<div id="page" class="flex flex-col grow min-h-0 w-full pt-[2.25rem]">
-				<div class="flex flex-col grow min-h-0 px-6 sm:px-14 md:px-24 lg:px-32">
-					<main class="grow min-h-0">
-						{{ block "main" . }}{{ end }}
-					</main>
-				</div>
-</div>
-			<script>{{ readFile "assets/js/movement.js" | safeJS }}</script>
-			<script>{{ readFile "assets/js/boids/boid.js" | safeJS }}</script>
-			<script>{{ readFile "assets/js/boids/flock.js" | safeJS }}</script>
-			<script>{{ readFile "assets/js/boids/config.js" | safeJS }}</script>
-			<script>{{ readFile "assets/js/boids/main.js" | safeJS }}</script>
-			<script>
-				feather.replace()
-			</script>
-			<script>{{ readFile "assets/js/techstack.js" | safeJS }}</script>
-  </body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.10/dist/htmx.min.js"></script>
+  {{/* CSS */}}
+  {{ $cssResources := slice }}
+  {{ $schemeName := .Site.Params.colorScheme | default "avocado" }}
+  {{ $cssScheme := resources.Get (printf "css/schemes/%s.css" (lower $schemeName)) | default (resources.Get "css/schemes/avocado.css") }}
+  {{ $cssResources = $cssResources | append $cssScheme }}
+  {{ $cssResources = $cssResources | append (resources.Get "css/compiled/main.css") }}
+  {{ $bundleCSS := $cssResources | resources.Concat "css/main.bundle.css" | resources.Minify }}
+  <link type="text/css"
+        rel="stylesheet"
+        href="{{ $bundleCSS.RelPermalink }}"
+        integrity="{{ $bundleCSS.Data.Integrity }}">
+  {{ if .Param "math" }}
+  {{ partialCached "math.html" . }}
+  {{ end }}
+</head>
+{{ $bodyLayout := "flex flex-col h-screen leading-7 w-full" }}
+{{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
+<body class="{{ $bodyLayout }} {{ $bodyColor }}"
+      hx-boost="true"
+      hx-target="#page"
+      hx-select="#page"
+      hx-swap="outerHTML transition:true show:none">
+  {{ partial "menu.html" . }}
+  <div id="page" class="flex flex-col grow min-h-0 w-full pt-[2.25rem]">
+    <div class="flex flex-col grow min-h-0 px-6 sm:px-14 md:px-24 lg:px-32">
+      <main class="grow min-h-0">
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+  </div>
+  <script>{{ readFile "assets/js/movement.js" | safeJS }}</script>
+  <script>{{ readFile "assets/js/boids/boid.js" | safeJS }}</script>
+  <script>{{ readFile "assets/js/boids/flock.js" | safeJS }}</script>
+  <script>{{ readFile "assets/js/boids/config.js" | safeJS }}</script>
+  <script>{{ readFile "assets/js/boids/main.js" | safeJS }}</script>
+  <script>feather.replace()</script>
+  <script>{{ readFile "assets/js/techstack.js" | safeJS }}</script>
+</body>
 </html>

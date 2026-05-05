@@ -2,7 +2,7 @@ title = "My awesome website"
 
 [params.author]
 name = "Mikołaj Pawłowski"
-bio = "Just a bloke who likes computers"
+bio = "lorem ipsum costam costam"
 links = [
 	{ name = "github", link = "https://www.github.com/krecony", icon = "github" },
 	{ name = "linkedin", link = "https://www.linkedin.com/in/miko%C5%82aj-paw%C5%82owski/", icon = "linkedin" },

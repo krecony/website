@@ -1,16 +1,13 @@
 <div class="py-1 w-full backdrop-blur-md fixed top-0 z-50">
-	<nav class="flex items-center justify-center gap-x-4 font-mono">
-		{{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
-		{{ range $i, $item := .Site.Menus.main }}
-			{{ $itemURL := $item.URL | relURL }}
-			{{ $itemPath := strings.TrimSuffix "/" $itemURL }}
-			{{ $isCurrent := eq $itemPath $currentPath }}
-			<a
-				href="{{ $itemURL }}"
-				data-nav-order="{{ $i }}"
-				class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">
-				{{ $item.Name }}
-			</a>
-		{{ end }}
-	</nav>
+  <nav class="flex items-center justify-center gap-x-4 font-mono">
+    {{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
+    {{ range $i, $item := .Site.Menus.main }}
+    {{ $itemURL := $item.URL | relURL }}
+    {{ $itemPath := strings.TrimSuffix "/" $itemURL }}
+    {{ $isCurrent := eq $itemPath $currentPath }}
+    <a href="{{ $itemURL }}"
+       data-nav-order="{{ $i }}"
+       class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
+    {{ end }}
+  </nav>
 </div>
