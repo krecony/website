@@ -35,24 +35,6 @@
     }
   };
 
-  const syncMathJax = () => {
-    const page = document.getElementById("page");
-    if (
-      !page ||
-      !window.MathJax ||
-      typeof window.MathJax.typesetPromise !== "function"
-    )
-      return;
-
-    if (typeof window.MathJax.typesetClear === "function") {
-      window.MathJax.typesetClear([page]);
-    }
-
-    window.MathJax.typesetPromise([page]).catch((error) => {
-      console.error("MathJax typeset failed:", error);
-    });
-  };
-
   document.addEventListener(
     "click",
     (event) => {
@@ -91,21 +73,14 @@
     true,
   );
 
-  const reloadThings = () => {
-    syncCurrentNavUnderline();
-    syncMathJax();
-    feather.replace();
-  };
-
-  document.addEventListener("DOMContentLoaded", reloadThings);
+  document.addEventListener("DOMContentLoaded", syncCurrentNavUnderline);
+  document.addEventListener("htmx:historyRestore", syncCurrentNavUnderline);
 
   document.addEventListener("htmx:afterSwap", (event) => {
     const isBoosted = Boolean(event.detail?.requestConfig?.boosted);
     const swappedPage = event.detail?.target?.id === "page";
     if (!isBoosted || !swappedPage) return;
-    reloadThings();
+    syncCurrentNavUnderline();
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   });
-
-  document.addEventListener("htmx:historyRestore", reloadThings);
 })();
