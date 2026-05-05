@@ -49,4 +49,11 @@
 			if (targetOrder > currentOrder) root.dataset.navDirection = "rtl";
 		}
 	}, true);
+
+	document.addEventListener("htmx:afterSwap", (event) => {
+		const isBoosted = Boolean(event.detail?.requestConfig?.boosted);
+		const swappedPage = event.detail?.target?.id === "page";
+		if (!isBoosted || !swappedPage) return;
+		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+	});
 })();
