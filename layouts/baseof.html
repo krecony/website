@@ -29,6 +29,10 @@
 			href="{{ $bundleCSS.RelPermalink }}"
 			integrity="{{ $bundleCSS.Data.Integrity }}">
 
+		{{ if .Param "math" }}
+			{{ partialCached "math.html" . }}
+		{{ end }}
+
   </head>
   {{ $bodyLayout := "flex flex-col h-screen leading-7 w-full" }}
   {{ $bodyColor := "text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral" }}
