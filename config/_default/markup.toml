@@ -1,7 +1,11 @@
-[markup.goldmark]
-	[markup.goldmark.extensions]
-		[markup.goldmark.extensions.passthrough]
+[goldmark]
+	[goldmark.renderer]
+		unsafe = true
+	[goldmark.parser.attribute]
+		block = true
+	[goldmark.extensions]
+		[goldmark.extensions.passthrough]
 			enable = true
-			[markup.goldmark.extensions.passthrough.delimiters]
+			[goldmark.extensions.passthrough.delimiters]
 				block = [['\[', '\]'], ['$$', '$$']]
 				inline = [['\(', '\)']]
