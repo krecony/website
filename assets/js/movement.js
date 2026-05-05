@@ -74,22 +74,21 @@
 		}
 	}, true);
 
-	document.addEventListener("DOMContentLoaded", () => {
+	const reloadThings = () => {
 		syncCurrentNavUnderline();
 		syncMathJax();
-	});
+		feather.replace();
+	};
+
+	document.addEventListener("DOMContentLoaded", reloadThings);
 
 	document.addEventListener("htmx:afterSwap", (event) => {
 		const isBoosted = Boolean(event.detail?.requestConfig?.boosted);
 		const swappedPage = event.detail?.target?.id === "page";
 		if (!isBoosted || !swappedPage) return;
-		syncCurrentNavUnderline();
-		syncMathJax();
+		reloadThings()
 		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 	});
 
-	document.addEventListener("htmx:historyRestore", () => {
-		syncCurrentNavUnderline();
-		syncMathJax();
-	});
+	document.addEventListener("htmx:historyRestore", reloadThings);
 })();
