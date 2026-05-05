@@ -1059,6 +1059,21 @@ video {
   margin-bottom: 0;
 }
 
+.mx-7 {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -1069,6 +1084,10 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .block {
@@ -1107,8 +1126,44 @@ video {
   width: 100%;
 }
 
+.min-w-\[50\%\] {
+  min-width: 50%;
+}
+
+.min-w-\[70\%\] {
+  min-width: 70%;
+}
+
+.min-w-\[80\%\] {
+  min-width: 80%;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.max-w-prose {
+  max-width: 65ch;
+}
+
+.max-w-\[70\%\] {
+  max-width: 70%;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.max-w-\[80\%\] {
+  max-width: 80%;
+}
+
 .grow {
   flex-grow: 1;
+}
+
+.grow-0 {
+  flex-grow: 0;
 }
 
 .flex-col {
@@ -1151,6 +1206,21 @@ video {
   padding-right: 1.5rem;
 }
 
+.px-\[20\%\] {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.px-\[30\%\] {
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1169,8 +1239,17 @@ video {
   line-height: 1.75rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .font-medium {
   font-weight: 500;
+}
+
+.font-extrabold {
+  font-weight: 800;
 }
 
 .leading-7 {
@@ -1185,6 +1264,21 @@ video {
 .text-neutral-900 {
   --tw-text-opacity: 1;
   color: rgb(var(--color-neutral-900) / var(--tw-text-opacity, 1));
+}
+
+.text-neutral-800 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-neutral-800) / var(--tw-text-opacity, 1));
+}
+
+.text-neutral-300 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-neutral-300) / var(--tw-text-opacity, 1));
+}
+
+.text-neutral {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-neutral) / var(--tw-text-opacity, 1));
 }
 
 html:not(.dark) {
@@ -1325,6 +1419,11 @@ html[data-nav-direction="rtl"]::view-transition-new(page) {
 }
 
 @media (min-width: 640px) {
+  .sm\:mx-14 {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+  }
+
   .sm\:px-14 {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
@@ -1332,6 +1431,11 @@ html[data-nav-direction="rtl"]::view-transition-new(page) {
 }
 
 @media (min-width: 768px) {
+  .md\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
   .md\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
@@ -1339,6 +1443,11 @@ html[data-nav-direction="rtl"]::view-transition-new(page) {
 }
 
 @media (min-width: 1024px) {
+  .lg\:mx-32 {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+
   .lg\:px-32 {
     padding-left: 8rem;
     padding-right: 8rem;

@@ -1,6 +1,14 @@
 {{ define "main" }}
-  <article class="prose dark:prose-invert">
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-  </article>
+	<div class="font-mono flex justify-center">
+		<article class="min-w-[80%] max-w-[80%]">
+			<header class="max-w-prose my-5">
+				<h1 class="text-4xl font-extrabold">
+					{{ .Title }}
+				</h1>
+			</header>
+			<section class="prose dark:prose-invert max-w-full">
+				{{ .Content }}
+			</section>
+		<article>
+	</div>
 {{ end }}
