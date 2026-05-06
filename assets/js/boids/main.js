@@ -2,191 +2,166 @@
   if (window.__boidsMainInitialized) return;
   window.__boidsMainInitialized = true;
 
-  let rafId = null;
-  let canvas = null;
-  let ctx = null;
-  let flock = null;
+  let renderer = null;
+  let currentCanvas = null;
+  let canvasObserver = null;
   let themeObserver = null;
-  let last = 0;
-  const onMouseOver = () => {
-    g.mouse.over = true;
-  };
-  const onMouseOut = () => {
-    g.mouse.over = false;
-  };
+  let documentVisible = document.visibilityState === "visible";
+  let canvasInViewport = false;
 
-  function getPoint(event) {
-    if (!canvas) return null;
-
-    const rect = canvas.getBoundingClientRect();
-    if (event.touches && event.touches.length > 0) {
-      return {
-        x: event.touches[0].clientX - rect.left,
-        y: event.touches[0].clientY - rect.top,
-      };
-    }
-    if (event.changedTouches && event.changedTouches.length > 0) {
-      return {
-        x: event.changedTouches[0].clientX - rect.left,
-        y: event.changedTouches[0].clientY - rect.top,
-      };
-    }
-    return {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-    };
-  }
-
-  function updateMousePosition(event) {
-    const point = getPoint(event);
-    if (!point) return;
-    g.mouse.x = point.x;
-    g.mouse.y = point.y;
-  }
-
-  function down(event) {
-    updateMousePosition(event);
-    g.mouse.down = true;
-  }
-
-  function up() {
-    g.mouse.down = false;
-  }
-
-  function move(event) {
-    updateMousePosition(event);
-  }
-
-  function resizeCanvas() {
-    if (!canvas || !ctx) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const width = Math.max(1, Math.floor(rect.width));
-    const height = Math.max(1, Math.floor(rect.height));
-    const dpr = window.devicePixelRatio || 1;
-
-    g.width = width;
-    g.height = height;
-
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-
-    g.circle.center.x = g.width / 2;
-    g.circle.center.y = g.height / 2;
-    g.circle.radius = Math.min(g.width, g.height) * 0.4;
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (flock) flock.resize();
-  }
-
-  function animate(now) {
-    if (flock && now - last >= g.frame_time) {
-      last = now - ((now - last) % g.frame_time);
-      flock.update();
-      if (canvas && ctx) {
-        ctx.clearRect(0, 0, g.width, g.height);
-        flock.draw(ctx);
-      }
-    }
-
-    rafId = requestAnimationFrame(animate);
-  }
-
-  function updateBoidColor() {
+  function getThemeBoidColor() {
     const cssColor = getComputedStyle(document.documentElement)
       .getPropertyValue("--boid-color")
       .trim();
+    return cssColor || "#000";
+  }
 
-    g.boid_color = cssColor || "#000";
+  function supportsWorkerRenderer() {
+    return Boolean(
+      window.BoidsWorkerRenderer &&
+        window.__boidsWorkerUrl &&
+        typeof Worker !== "undefined" &&
+        HTMLCanvasElement.prototype.transferControlToOffscreen,
+    );
+  }
+
+  function createRenderer() {
+    if (renderer) return;
+
+    if (supportsWorkerRenderer()) {
+      try {
+        renderer = new window.BoidsWorkerRenderer(window.__boidsWorkerUrl);
+      } catch (_error) {
+        renderer = null;
+      }
+    }
+
+    if (!renderer) {
+      renderer = new window.BoidsMainThreadRenderer();
+    }
+  }
+
+  function isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.width > 0 &&
+      rect.height > 0 &&
+      rect.bottom > 0 &&
+      rect.right > 0 &&
+      rect.top < window.innerHeight &&
+      rect.left < window.innerWidth
+    );
+  }
+
+  function syncRunState() {
+    if (!renderer) return;
+    const shouldRun = Boolean(
+      currentCanvas && documentVisible && canvasInViewport,
+    );
+    renderer.setRunning(shouldRun);
+  }
+
+  function observeCanvas(canvas) {
+    if (canvasObserver) {
+      canvasObserver.disconnect();
+      canvasObserver = null;
+    }
+
+    if (!canvas) {
+      canvasInViewport = false;
+      return;
+    }
+
+    canvasInViewport = isElementInViewport(canvas);
+    syncRunState();
+
+    canvasObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.target !== canvas) continue;
+          canvasInViewport =
+            entry.isIntersecting &&
+            entry.intersectionRatio > 0 &&
+            entry.target.isConnected;
+        }
+        syncRunState();
+      },
+      { threshold: [0, 0.01] },
+    );
+
+    canvasObserver.observe(canvas);
+  }
+
+  function updateTheme() {
+    if (!renderer) return;
+    renderer.updateThemeColor(getThemeBoidColor());
   }
 
   function startThemeSync() {
     if (themeObserver) return;
-
-    updateBoidColor();
-    themeObserver = new MutationObserver(updateBoidColor);
+    updateTheme();
+    themeObserver = new MutationObserver(updateTheme);
     themeObserver.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
     });
   }
 
-  function startLoop() {
-    if (rafId !== null) return;
-    last = 0;
-    rafId = requestAnimationFrame(animate);
-  }
+  function attachRenderer(canvas) {
+    if (!renderer) return false;
+    const attached = renderer.attachCanvas(canvas);
+    if (attached) return true;
 
-  function bindCanvasListeners() {
-    canvas.addEventListener("mouseover", onMouseOver);
-    canvas.addEventListener("mouseout", onMouseOut);
-    canvas.addEventListener("mousemove", move);
-    canvas.addEventListener("touchmove", move, { passive: true });
-    canvas.addEventListener("mousedown", down);
-    canvas.addEventListener("touchstart", down, { passive: true });
-    canvas.addEventListener("mouseup", up);
-    canvas.addEventListener("touchend", up, { passive: true });
-  }
-
-  function unbindCanvasListeners(oldCanvas) {
-    oldCanvas.removeEventListener("mouseover", onMouseOver);
-    oldCanvas.removeEventListener("mouseout", onMouseOut);
-    oldCanvas.removeEventListener("mousemove", move);
-    oldCanvas.removeEventListener("touchmove", move);
-    oldCanvas.removeEventListener("mousedown", down);
-    oldCanvas.removeEventListener("touchstart", down);
-    oldCanvas.removeEventListener("mouseup", up);
-    oldCanvas.removeEventListener("touchend", up);
-  }
-
-  function detachCanvas() {
-    if (!canvas) return;
-    unbindCanvasListeners(canvas);
-    canvas = null;
-    ctx = null;
-    g.mouse.over = false;
-    g.mouse.down = false;
-  }
-
-  function attachCanvas(nextCanvas) {
-    if (canvas === nextCanvas && ctx) {
-      resizeCanvas();
-      return;
+    if (renderer instanceof window.BoidsWorkerRenderer) {
+      renderer.destroy();
+      renderer = new window.BoidsMainThreadRenderer();
+      return renderer.attachCanvas(canvas);
     }
 
-    detachCanvas();
-    canvas = nextCanvas;
-    ctx = canvas.getContext("2d");
-    bindCanvasListeners();
-    resizeCanvas();
+    return false;
   }
 
   function syncBoids() {
+    createRenderer();
     startThemeSync();
 
     const nextCanvas = document.getElementById("bird_canvas");
+
     if (!nextCanvas) {
-      detachCanvas();
-      startLoop();
+      currentCanvas = null;
+      observeCanvas(null);
+      if (renderer) renderer.detachCanvas();
+      syncRunState();
       return;
     }
 
-    attachCanvas(nextCanvas);
-
-    if (!flock) {
-      const boids = [];
-      for (let i = 0; i < g.boid_count; i++) {
-        boids.push(new Boid());
-      }
-      flock = new Flock(boids);
+    if (currentCanvas !== nextCanvas) {
+      currentCanvas = nextCanvas;
+      attachRenderer(nextCanvas);
+      observeCanvas(nextCanvas);
     }
 
-    flock.resize();
-
-    startLoop();
+    if (renderer) {
+      renderer.resize();
+      updateTheme();
+    }
+    syncRunState();
   }
 
-  window.addEventListener("resize", resizeCanvas);
+  function onVisibilityChange() {
+    documentVisible = document.visibilityState === "visible";
+    syncRunState();
+  }
+
+  function onResize() {
+    if (!renderer || !currentCanvas) return;
+    renderer.resize();
+    canvasInViewport = isElementInViewport(currentCanvas);
+    syncRunState();
+  }
+
+  window.addEventListener("resize", onResize);
+  document.addEventListener("visibilitychange", onVisibilityChange);
   document.addEventListener("DOMContentLoaded", syncBoids);
   document.addEventListener("htmx:afterSwap", syncBoids);
   document.addEventListener("htmx:afterSettle", syncBoids);

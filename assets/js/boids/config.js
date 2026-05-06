@@ -29,7 +29,7 @@ let g = {
   },
 
   boid_size: 10,
-  boid_count: 1000,
+  boid_count: 750,
   boid_color: "#000",
 
   fps: 60,
