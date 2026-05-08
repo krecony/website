@@ -9,11 +9,11 @@ pageRef = '/portfolio'
 weight = 2
 
 [[main]]
-name = 'posts'
-pageRef = '/posts'
+name = 'projects'
+pageRef = '/projects'
 weight = 3
 
 [[main]]
-name = 'projects'
-pageRef = '/projects'
+name = 'posts'
+pageRef = '/posts'
 weight = 4
