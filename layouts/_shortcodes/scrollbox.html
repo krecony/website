@@ -1,0 +1,8 @@
+<div class="scrollbox-track overflow-hidden cursor-grab [&.is-dragging]:cursor-grabbing select-none relative w-full mr-3"
+     data-marquee>
+  <div class="scrollbox-lane w-max flex will-change-transform gap-2">
+    {{ range .Params }}
+    <div class="scrollbox-item py-1">{{ . }}</div>
+    {{ end }}
+  </div>
+</div>

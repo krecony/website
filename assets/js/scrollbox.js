@@ -1,5 +1,5 @@
 document.querySelectorAll("[data-marquee]").forEach((track) => {
-  const lane = track.querySelector(".techstack-lane");
+  const lane = track.querySelector(".scrollbox-lane");
 
   const containerWidth = track.offsetWidth;
 
