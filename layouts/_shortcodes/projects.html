@@ -1,0 +1,48 @@
+<div class="flex flex-col gap-5 border-r-[0.3em] border-neutral-800 dark:border-neutral border-dashed">
+  {{ range .Site.Params.projects }}
+  <div class="flex justify-between items-center gap-5">
+    <div class="border-[0.1em] border-solid border-neutral-800 dark:border-neutral p-5">
+      <div class="flex gap-5 justify-between items-start text-pretty">
+        <div>
+          <h2 class="my-0">{{ .name }}</h2>
+          <span>{{ .techstack }}</span>
+        </div>
+        {{ if .repo }}
+        <a href="{{ .repo }}" class="flex items-center gap-1">
+          <span>github</span>
+          <i data-feather="github" class="w-[1em] h-[1em]"></i>
+        </a>
+        {{ end }}
+      </div>
+      <ul>
+        {{ range .bullets }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="min-w-[15%] flex justify-end">
+      {{ $circle := "-mr-[0.6em] rounded-full w-[1em] h-[1em] bg-neutral-800 dark:bg-neutral-100 shrink-0 z-[50]" }}
+      {{ if or (eq .startdate .enddate) (not .enddate) }}
+      <div class="flex items-center gap-5">
+        <span class="text-nowrap text-right">{{ .startdate }}</span>
+        <div class={{ $circle }}>
+        </div>
+      </div>
+    {{ else }}
+      <div class="flex flex-col gap-5 items-end">
+        <div class="flex items-center gap-5">
+          <span class="text-nowrap text-right">{{ .enddate }}</span>
+          <div class={{ $circle }}>
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <span class="text-nowrap text-right">{{ .startdate }}</span>
+          <div class={{ $circle }}>
+          </div>
+        </div>
+      </div>
+      {{ end}}
+    </div>
+  </div>
+  {{ end }}
+</div>

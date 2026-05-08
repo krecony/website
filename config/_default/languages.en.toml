@@ -1,5 +1,26 @@
 title = "My awesome website"
 
+[[params.projects]]
+name = "FoodPal"
+techstack = "Java | JavaFX | Maven | SpringBoot"
+startdate = "Nov. 2025"
+enddate = "Jan. 2026"
+bullets = [
+	"Developed a full-stack desktop application using JavaFX, backed by a Springboot–based REST API",
+	"Created as a part of the Collaborative Software Engineering Project (CSE1105)",
+]
+
+[[params.projects]]
+name = "Multilayer Perceptron"
+techstack = "Python | Numpy | Jupyter"
+startdate = "Oct. 2025"
+bullets = [
+	"Implemented a simple MLP in NumPy, and trained it on a breast cancer dataset",
+	"Uses stochastic gradient descent with momentum, with an optional L2 regularisation term",
+	"Developed it as a way to better understand the concept while studying for a Machine Learning course (CSE2510)",
+]
+repo = "https://github.com/krecony/simple-mlp"
+
 [params.author]
 name = "Mikołaj Pawłowski"
 nickname = "krecony"

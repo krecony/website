@@ -1,3 +1,5 @@
 ---
-construction: true
+title: "projects"
 ---
+
+{{< projects >}}
