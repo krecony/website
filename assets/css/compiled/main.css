@@ -1553,6 +1553,10 @@ video {
   z-index: 60;
 }
 
+.\!m-0 {
+  margin: 0px !important;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -1710,6 +1714,10 @@ video {
   width: max-content;
 }
 
+.min-w-\[50\%\] {
+  min-width: 50%;
+}
+
 .max-w-full {
   max-width: 100%;
 }
@@ -1800,10 +1808,6 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
-}
-
-.text-nowrap {
-  text-wrap: nowrap;
 }
 
 .text-pretty {
@@ -1918,11 +1922,6 @@ video {
 
 .text-lg {
   font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
