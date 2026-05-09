@@ -5,6 +5,7 @@
   let renderer = null;
   let currentCanvas = null;
   let canvasObserver = null;
+  let resizeObserver = null;
   let themeObserver = null;
   let documentVisible = document.visibilityState === "visible";
   let canvasInViewport = false;
@@ -67,6 +68,11 @@
       canvasObserver = null;
     }
 
+    if (resizeObserver) {
+      resizeObserver.disconnect();
+      resizeObserver = null;
+    }
+
     if (!canvas) {
       canvasInViewport = false;
       return;
@@ -90,6 +96,16 @@
     );
 
     canvasObserver.observe(canvas);
+
+    // Also observe canvas size changes to trigger resize on container size changes
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserver = new ResizeObserver(() => {
+        if (renderer && currentCanvas) {
+          renderer.resize();
+        }
+      });
+      resizeObserver.observe(canvas);
+    }
   }
 
   function updateTheme() {
