@@ -8,12 +8,12 @@
     <h1 class="text-2xl font-extrabold">sorry this page isn't built yet</h1>
   </div>
 {{ else }}
-  <article class="w-[70%]">
+  <article class="w-full lg:w-[70%]">
     <div class="">
       <header class="max-w-prose my-5">
-        <h1 class="text-4xl font-extrabold">{{ .Title }}</h1>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold">{{ .Title }}</h1>
       </header>
-      <section class="prose dark:prose-invert max-w-full">
+      <section class="prose dark:prose-invert max-w-full prose-sm sm:prose-base md:prose-lg">
         {{ .Content }}
       </section>
     </div>
