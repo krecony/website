@@ -19,13 +19,15 @@ if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
     document.documentElement.classList.add("dark");
   }
 
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-      if (localStorage.getItem("appearance") === null) {
-        document.documentElement.classList.toggle("dark", event.matches);
-      }
-    });
+  const colorSchemeMediaQuery = window.matchMedia(
+    "(prefers-color-scheme: dark)",
+  );
+  const handleColorSchemeChange = (event) => {
+    if (localStorage.getItem("appearance") === null) {
+      document.documentElement.classList.toggle("dark", event.matches);
+    }
+  };
+  colorSchemeMediaQuery.addEventListener("change", handleColorSchemeChange);
 }
 
 const darkModeButtons = Array.from(
