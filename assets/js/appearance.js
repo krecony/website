@@ -28,20 +28,28 @@ if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
     });
 }
 
-const darkModeButton = document.getElementById("mode-button");
-const darkModeIcon = document.getElementById("mode-icon-moon");
-const lightModeIcon = document.getElementById("mode-icon-sun");
+const darkModeButtons = Array.from(
+  document.querySelectorAll("[data-mode-toggle]"),
+);
 
-const updateIcon = () => {
+const updateIcons = () => {
   const darkMode = document.documentElement.classList.contains("dark");
 
-  darkModeIcon.classList.toggle("hidden", !darkMode);
-  lightModeIcon.classList.toggle("hidden", darkMode);
+  darkModeButtons.forEach((button) => {
+    const darkModeIcon = button.querySelector('[data-mode-icon="moon"]');
+    const lightModeIcon = button.querySelector('[data-mode-icon="sun"]');
+    if (!darkModeIcon || !lightModeIcon) return;
+
+    darkModeIcon.classList.toggle("hidden", !darkMode);
+    lightModeIcon.classList.toggle("hidden", darkMode);
+  });
 };
 
-darkModeButton.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
-  updateIcon();
+darkModeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    updateIcons();
+  });
 });
 
-updateIcon();
+updateIcons();
