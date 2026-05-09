@@ -1,6 +1,7 @@
 (() => {
   const root = document.documentElement;
   root.dataset.navDirection = root.dataset.navDirection || "rtl";
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
 
   const normalizePath = (pathname) => {
     const trimmed = pathname.replace(/\/+$/, "");
@@ -35,11 +36,17 @@
     }
   };
 
+  const closeMobileMenu = () => {
+    if (!mobileMenuToggle) return;
+    mobileMenuToggle.checked = false;
+  };
+
   document.addEventListener(
     "click",
     (event) => {
       const link = event.target.closest("a[data-nav-order]");
       if (!link) return;
+      if (link.hasAttribute("data-mobile-nav-link")) closeMobileMenu();
       if (event.defaultPrevented || event.button !== 0) return;
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
         return;
@@ -74,12 +81,16 @@
   );
 
   document.addEventListener("DOMContentLoaded", syncCurrentNavUnderline);
-  document.addEventListener("htmx:historyRestore", syncCurrentNavUnderline);
+  document.addEventListener("htmx:historyRestore", () => {
+    closeMobileMenu();
+    syncCurrentNavUnderline();
+  });
 
   document.addEventListener("htmx:afterSwap", (event) => {
     const isBoosted = Boolean(event.detail?.requestConfig?.boosted);
     const swappedPage = event.detail?.target?.id === "page";
     if (!isBoosted || !swappedPage) return;
+    closeMobileMenu();
     syncCurrentNavUnderline();
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   });

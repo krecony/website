@@ -1,21 +1,66 @@
-<div class="py-1 w-full backdrop-blur-md fixed top-0 z-50">
-  <nav class="flex items-center justify-center gap-x-4 font-mono">
-    {{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
-    {{ range $i, $item := .Site.Menus.main }}
-    {{ $itemURL := $item.URL | relURL }}
-    {{ $itemPath := strings.TrimSuffix "/" $itemURL }}
-    {{ $isCurrent := eq $itemPath $currentPath }}
-    <a href="{{ $itemURL }}"
-       data-nav-order="{{ $i }}"
-       class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
-    {{ end }}
-    <button id="mode-button">
-      <i id="mode-icon-moon"
-         data-feather="moon"
-         class="mb-1 h-[1.3rem] w-[1.3rem]"></i>
-      <i id="mode-icon-sun"
-         data-feather="sun"
-         class="hidden mb-1 h-[1.3rem] w-[1.3rem]"></i>
-    </button>
-  </nav>
+{{ $currentPath := strings.TrimSuffix "/" .RelPermalink }}
+<input type="checkbox"
+       id="mobile-menu-toggle"
+       autocomplete="off"
+       class="hidden peer/mobile-menu">
+<div class="pt-4 pb-1 lg:py-1 w-full backdrop-blur-md fixed top-0 z-50">
+  <div class="mx-auto w-full px-4 sm:px-8 md:px-12">
+    <nav class="font-mono flex items-center justify-center">
+      <div class="hidden lg:flex items-center justify-center gap-x-4">
+        {{ range $i, $item := .Site.Menus.main }}
+        {{ $itemURL := $item.URL | relURL }}
+        {{ $itemPath := strings.TrimSuffix "/" $itemURL }}
+        {{ $isCurrent := eq $itemPath $currentPath }}
+        <a href="{{ $itemURL }}"
+           data-nav-order="{{ $i }}"
+           class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
+        {{ end }}
+        <button data-mode-toggle type="button" aria-label="Toggle color mode">
+          <i data-mode-icon="moon"
+             data-feather="moon"
+             class="mb-1 h-[1.3rem] w-[1.3rem]"></i>
+          <i data-mode-icon="sun"
+             data-feather="sun"
+             class="hidden mb-1 h-[1.3rem] w-[1.3rem]"></i>
+        </button>
+      </div>
+      <div class="flex lg:hidden items-center justify-end w-full">
+        <label for="mobile-menu-toggle"
+               aria-label="Open navigation menu"
+               class="cursor-pointer">
+          <i data-feather="menu" class="h-[1.4rem] w-[1.4rem]"></i>
+        </label>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="fixed inset-0 z-[60] invisible opacity-0 transition-[opacity,visibility] duration-300 peer-checked/mobile-menu:visible peer-checked/mobile-menu:opacity-100 bg-neutral/90 dark:bg-neutral-800/90 lg:hidden">
+  <div class="h-full flex flex-col px-6 pt-5 pb-8">
+    <div class="flex items-center justify-between">
+      <button data-mode-toggle type="button" aria-label="Toggle color mode">
+        <i data-mode-icon="moon"
+           data-feather="moon"
+           class="mb-1 h-[1.3rem] w-[1.3rem]"></i>
+        <i data-mode-icon="sun"
+           data-feather="sun"
+           class="hidden mb-1 h-[1.3rem] w-[1.3rem]"></i>
+      </button>
+      <label for="mobile-menu-toggle"
+             aria-label="Close navigation menu"
+             class="cursor-pointer">
+        <i data-feather="x" class="h-[1.5rem] w-[1.5rem]"></i>
+      </label>
+    </div>
+    <nav class="flex flex-col gap-5 mt-12 font-mono">
+      {{ range $i, $item := .Site.Menus.main }}
+      {{ $itemURL := $item.URL | relURL }}
+      {{ $itemPath := strings.TrimSuffix "/" $itemURL }}
+      {{ $isCurrent := eq $itemPath $currentPath }}
+      <a href="{{ $itemURL }}"
+         data-nav-order="{{ $i }}"
+         data-mobile-nav-link
+         class="font-bold text-3xl decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
+      {{ end }}
+    </nav>
+  </div>
 </div>

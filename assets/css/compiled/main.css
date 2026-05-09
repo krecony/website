@@ -1,6 +1,6 @@
 *,
-::before,
-::after {
+:after,
+:before {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -10,50 +10,49 @@
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
-
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -64,148 +63,84 @@
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
-}
-
-/*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/
-
-/*
-1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
-*/
-
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+} /*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/
 *,
-::before,
-::after {
+:after,
+:before {
+  border: 0 solid #e5e7eb;
   box-sizing: border-box;
-  /* 1 */
-  border-width: 0;
-  /* 2 */
-  border-style: solid;
-  /* 2 */
-  border-color: #e5e7eb;
-  /* 2 */
 }
-
-::before,
-::after {
+:after,
+:before {
   --tw-content: "";
 }
-
-/*
-1. Use a consistent sensible line-height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-3. Use a more readable tab size.
-4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
-6. Use the user's configured `sans` font-variation-settings by default.
-7. Disable tap highlights on iOS
-*/
-
-html,
-:host {
+:host,
+html {
   line-height: 1.5;
-  /* 1 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
+  font-family: Saira, sans-serif;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
   -moz-tab-size: 4;
-  /* 3 */
   -o-tab-size: 4;
   tab-size: 4;
-  /* 3 */
-  font-family: Saira, sans-serif;
-  /* 4 */
-  font-feature-settings: normal;
-  /* 5 */
-  font-variation-settings: normal;
-  /* 6 */
   -webkit-tap-highlight-color: transparent;
-  /* 7 */
 }
-
-/*
-1. Remove the margin in all browsers.
-2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
-*/
-
 body {
-  margin: 0;
-  /* 1 */
   line-height: inherit;
-  /* 2 */
+  margin: 0;
 }
-
-/*
-1. Add the correct height in Firefox.
-2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-3. Ensure horizontal rules are visible by default.
-*/
-
 hr {
-  height: 0;
-  /* 1 */
-  color: inherit;
-  /* 2 */
   border-top-width: 1px;
-  /* 3 */
+  color: inherit;
+  height: 0;
 }
-
-/*
-Add the correct text decoration in Chrome, Edge, and Safari.
-*/
-
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
-
-/*
-Remove the default font size and weight for headings.
-*/
-
 h1,
 h2,
 h3,
@@ -215,60 +150,34 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
 }
-
-/*
-Reset links to optimize for opt-in styling instead of opt-out.
-*/
-
 a {
   color: inherit;
   text-decoration: inherit;
 }
-
-/*
-Add the correct font weight in Edge and Safari.
-*/
-
 b,
 strong {
   font-weight: bolder;
 }
-
-/*
-1. Use the user's configured `mono` font-family by default.
-2. Use the user's configured `mono` font-feature-settings by default.
-3. Use the user's configured `mono` font-variation-settings by default.
-4. Correct the odd `em` font sizing in all browsers.
-*/
-
 code,
 kbd,
-samp,
-pre {
+pre,
+samp {
   font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  /* 1 */
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
   font-feature-settings: normal;
-  /* 2 */
-  font-variation-settings: normal;
-  /* 3 */
   font-size: 1em;
-  /* 4 */
+  font-variation-settings: normal;
 }
-
-/*
-Add the correct font size in all browsers.
-*/
-
 small {
   font-size: 80%;
 }
-
-/*
-Prevent `sub` and `sup` elements from affecting the line height in all browsers.
-*/
-
 sub,
 sup {
   font-size: 75%;
@@ -276,169 +185,76 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
-
 sub {
   bottom: -0.25em;
 }
-
 sup {
   top: -0.5em;
 }
-
-/*
-1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
-2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-3. Remove gaps between table borders by default.
-*/
-
 table {
-  text-indent: 0;
-  /* 1 */
-  border-color: inherit;
-  /* 2 */
   border-collapse: collapse;
-  /* 3 */
+  border-color: inherit;
+  text-indent: 0;
 }
-
-/*
-1. Change the font styles in all browsers.
-2. Remove the margin in Firefox and Safari.
-3. Remove default padding in all browsers.
-*/
-
 button,
 input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-feature-settings: inherit;
-  /* 1 */
-  font-variation-settings: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  font-weight: inherit;
-  /* 1 */
-  line-height: inherit;
-  /* 1 */
-  letter-spacing: inherit;
-  /* 1 */
   color: inherit;
-  /* 1 */
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: 100%;
+  font-variation-settings: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
   margin: 0;
-  /* 2 */
   padding: 0;
-  /* 3 */
 }
-
-/*
-Remove the inheritance of text transform in Edge and Firefox.
-*/
-
 button,
 select {
   text-transform: none;
 }
-
-/*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Remove default button styles.
-*/
-
 button,
 input:where([type="button"]),
 input:where([type="reset"]),
 input:where([type="submit"]) {
   -webkit-appearance: button;
-  /* 1 */
   background-color: transparent;
-  /* 2 */
   background-image: none;
-  /* 2 */
 }
-
-/*
-Use the modern Firefox focus style for all focusable elements.
-*/
-
 :-moz-focusring {
   outline: auto;
 }
-
-/*
-Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
-*/
-
 :-moz-ui-invalid {
   box-shadow: none;
 }
-
-/*
-Add the correct vertical alignment in Chrome and Firefox.
-*/
-
 progress {
   vertical-align: baseline;
 }
-
-/*
-Correct the cursor style of increment and decrement buttons in Safari.
-*/
-
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
   height: auto;
 }
-
-/*
-1. Correct the odd appearance in Chrome and Safari.
-2. Correct the outline style in Safari.
-*/
-
 [type="search"] {
   -webkit-appearance: textfield;
-  /* 1 */
   outline-offset: -2px;
-  /* 2 */
 }
-
-/*
-Remove the inner padding in Chrome and Safari on macOS.
-*/
-
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-
-/*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to `inherit` in Safari.
-*/
-
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  /* 1 */
   font: inherit;
-  /* 2 */
 }
-
-/*
-Add the correct display in Chrome and Safari.
-*/
-
 summary {
   display: list-item;
 }
-
-/*
-Removes the default spacing and border for appropriate elements.
-*/
-
 blockquote,
-dl,
 dd,
+dl,
+figure,
 h1,
 h2,
 h3,
@@ -446,129 +262,74 @@ h4,
 h5,
 h6,
 hr,
-figure,
 p,
 pre {
   margin: 0;
 }
-
 fieldset {
   margin: 0;
-  padding: 0;
 }
-
+fieldset,
 legend {
   padding: 0;
 }
-
+menu,
 ol,
-ul,
-menu {
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-/*
-Reset default styling for dialogs.
-*/
-
 dialog {
   padding: 0;
 }
-
-/*
-Prevent resizing textareas horizontally by default.
-*/
-
 textarea {
   resize: vertical;
 }
-
-/*
-1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-2. Set the default placeholder color to the user's configured gray 400 color.
-*/
-
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  opacity: 1;
-  /* 1 */
   color: #9ca3af;
-  /* 2 */
+  opacity: 1;
 }
-
 input::placeholder,
 textarea::placeholder {
-  opacity: 1;
-  /* 1 */
   color: #9ca3af;
-  /* 2 */
+  opacity: 1;
 }
-
-/*
-Set the default cursor for buttons.
-*/
-
-button,
-[role="button"] {
+[role="button"],
+button {
   cursor: pointer;
 }
-
-/*
-Make sure disabled buttons don't get the pointer cursor.
-*/
-
 :disabled {
   cursor: default;
 }
-
-/*
-1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
-2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-   This can trigger a poorly considered lint error in some tools but is included by design.
-*/
-
-img,
-svg,
-video,
-canvas,
 audio,
-iframe,
+canvas,
 embed,
-object {
+iframe,
+img,
+object,
+svg,
+video {
   display: block;
-  /* 1 */
   vertical-align: middle;
-  /* 2 */
 }
-
-/*
-Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
-*/
-
 img,
 video {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
-
-/* Make elements with the HTML hidden attribute stay hidden by default */
-
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-
 .prose {
   color: var(--tw-prose-body);
   max-width: 65ch;
 }
-
 .prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 1.25em;
   margin-bottom: 1.25em;
+  margin-top: 1.25em;
 }
-
 .prose
   :where([class~="lead"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
@@ -576,431 +337,369 @@ video {
   color: var(--tw-prose-lead);
   font-size: 1.25em;
   line-height: 1.6;
-  margin-top: 1.2em;
   margin-bottom: 1.2em;
+  margin-top: 1.2em;
 }
-
 .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-links);
-  text-decoration: underline;
   font-weight: 500;
+  text-decoration: underline;
 }
-
 .prose
   :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-bold);
   font-weight: 600;
 }
-
 .prose
   :where(a strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: inherit;
 }
-
 .prose
   :where(blockquote strong):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   color: inherit;
 }
-
 .prose
   :where(thead th strong):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   color: inherit;
 }
-
 .prose :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   list-style-type: decimal;
-  margin-top: 1.25em;
   margin-bottom: 1.25em;
+  margin-top: 1.25em;
   padding-inline-start: 1.625em;
 }
-
 .prose
   :where(ol[type="A"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: upper-alpha;
 }
-
 .prose
   :where(ol[type="a"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: lower-alpha;
 }
-
 .prose
-  :where(ol[type="A" s]):not(
+  :where(ol[type="A s"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: upper-alpha;
 }
-
 .prose
-  :where(ol[type="a" s]):not(
+  :where(ol[type="a s"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: lower-alpha;
 }
-
 .prose
   :where(ol[type="I"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: upper-roman;
 }
-
 .prose
   :where(ol[type="i"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: lower-roman;
 }
-
 .prose
-  :where(ol[type="I" s]):not(
+  :where(ol[type="I s"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: upper-roman;
 }
-
 .prose
-  :where(ol[type="i" s]):not(
+  :where(ol[type="i s"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: lower-roman;
 }
-
 .prose
   :where(ol[type="1"]):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   list-style-type: decimal;
 }
-
 .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   list-style-type: disc;
-  margin-top: 1.25em;
   margin-bottom: 1.25em;
+  margin-top: 1.25em;
   padding-inline-start: 1.625em;
 }
-
 .prose
   :where(ol > li):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   )::marker {
-  font-weight: 400;
   color: var(--tw-prose-counters);
+  font-weight: 400;
 }
-
 .prose
   :where(ul > li):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   )::marker {
   color: var(--tw-prose-bullets);
 }
-
 .prose :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
   margin-top: 1.25em;
 }
-
 .prose :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   border-color: var(--tw-prose-hr);
   border-top-width: 1px;
-  margin-top: 3em;
   margin-bottom: 3em;
+  margin-top: 3em;
 }
-
 .prose
   :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  font-weight: 500;
-  font-style: italic;
-  color: var(--tw-prose-quotes);
-  border-inline-start-width: 0.25rem;
   border-inline-start-color: var(--tw-prose-quote-borders);
-  quotes: "\201C" "\201D" "\2018" "\2019";
-  margin-top: 1.6em;
+  border-inline-start-width: 0.25rem;
+  color: var(--tw-prose-quotes);
+  font-style: italic;
+  font-weight: 500;
   margin-bottom: 1.6em;
+  margin-top: 1.6em;
   padding-inline-start: 1em;
+  quotes: "\201C" "\201D" "\2018" "\2019";
 }
-
 .prose
   :where(blockquote p:first-of-type):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
-  )::before {
+  ):before {
   content: open-quote;
 }
-
 .prose
   :where(blockquote p:last-of-type):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
-  )::after {
+  ):after {
   content: close-quote;
 }
-
 .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
-  font-weight: 800;
   font-size: 2.25em;
-  margin-top: 0;
-  margin-bottom: 0.8888889em;
+  font-weight: 800;
   line-height: 1.1111111;
+  margin-bottom: 0.8888889em;
+  margin-top: 0;
 }
-
 .prose
   :where(h1 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  font-weight: 900;
   color: inherit;
+  font-weight: 900;
 }
-
 .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
-  font-weight: 700;
   font-size: 1.5em;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  font-weight: 700;
   line-height: 1.3333333;
+  margin-bottom: 1em;
+  margin-top: 2em;
 }
-
 .prose
   :where(h2 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  font-weight: 800;
   color: inherit;
+  font-weight: 800;
 }
-
 .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
-  font-weight: 600;
   font-size: 1.25em;
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
+  font-weight: 600;
   line-height: 1.6;
+  margin-bottom: 0.6em;
+  margin-top: 1.6em;
 }
-
 .prose
   :where(h3 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  font-weight: 700;
   color: inherit;
+  font-weight: 700;
 }
-
 .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
   line-height: 1.5;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
 }
-
 .prose
   :where(h4 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  font-weight: 700;
   color: inherit;
+  font-weight: 700;
 }
-
 .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
-
 .prose
   :where(picture):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   display: block;
-  margin-top: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
-
 .prose :where(video):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
-
 .prose :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  font-weight: 500;
-  font-family: inherit;
-  color: var(--tw-prose-kbd);
+  border-radius: 0.3125rem;
   box-shadow:
     0 0 0 1px rgb(var(--tw-prose-kbd-shadows) / 10%),
     0 3px 0 rgb(var(--tw-prose-kbd-shadows) / 10%);
+  color: var(--tw-prose-kbd);
+  font-family: inherit;
   font-size: 0.875em;
-  border-radius: 0.3125rem;
-  padding-top: 0.1875em;
+  font-weight: 500;
   padding-inline-end: 0.375em;
   padding-bottom: 0.1875em;
+  padding-top: 0.1875em;
   padding-inline-start: 0.375em;
 }
-
 .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-code);
-  font-weight: 600;
   font-size: 0.875em;
+  font-weight: 600;
 }
-
 .prose
   :where(code):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
-  )::before {
+  ):before {
   content: "`";
 }
-
 .prose
-  :where(code):not(
-    :where([class~="not-prose"], [class~="not-prose"] *)
-  )::after {
+  :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):after {
   content: "`";
 }
-
 .prose
   :where(a code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: inherit;
 }
-
 .prose
   :where(h1 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: inherit;
 }
-
 .prose
   :where(h2 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: inherit;
   font-size: 0.875em;
 }
-
 .prose
   :where(h3 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: inherit;
   font-size: 0.9em;
 }
-
 .prose
   :where(h4 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: inherit;
 }
-
 .prose
   :where(blockquote code):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   color: inherit;
 }
-
 .prose
   :where(thead th code):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   color: inherit;
 }
-
 .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  color: var(--tw-prose-pre-code);
   background-color: var(--tw-prose-pre-bg);
-  overflow-x: auto;
-  font-weight: 400;
-  font-size: 0.875em;
-  line-height: 1.7142857;
-  margin-top: 1.7142857em;
-  margin-bottom: 1.7142857em;
   border-radius: 0.375rem;
-  padding-top: 0.8571429em;
+  color: var(--tw-prose-pre-code);
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 1.7142857;
+  margin-bottom: 1.7142857em;
+  margin-top: 1.7142857em;
+  overflow-x: auto;
   padding-inline-end: 1.1428571em;
   padding-bottom: 0.8571429em;
+  padding-top: 0.8571429em;
   padding-inline-start: 1.1428571em;
 }
-
 .prose
   :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   background-color: transparent;
-  border-width: 0;
   border-radius: 0;
-  padding: 0;
-  font-weight: inherit;
+  border-width: 0;
   color: inherit;
-  font-size: inherit;
   font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
+  padding: 0;
 }
-
 .prose
   :where(pre code):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
-  )::before {
+  ):before {
   content: none;
 }
-
 .prose
   :where(pre code):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
-  )::after {
+  ):after {
   content: none;
 }
-
 .prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  width: 100%;
-  table-layout: auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
   font-size: 0.875em;
   line-height: 1.7142857;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  table-layout: auto;
+  width: 100%;
 }
-
 .prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  border-bottom-width: 1px;
   border-bottom-color: var(--tw-prose-th-borders);
+  border-bottom-width: 1px;
 }
-
 .prose
   :where(thead th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 600;
-  vertical-align: bottom;
   padding-inline-end: 0.5714286em;
   padding-bottom: 0.5714286em;
   padding-inline-start: 0.5714286em;
+  vertical-align: bottom;
 }
-
 .prose
   :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  border-bottom-width: 1px;
   border-bottom-color: var(--tw-prose-td-borders);
+  border-bottom-width: 1px;
 }
-
 .prose
   :where(tbody tr:last-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   border-bottom-width: 0;
 }
-
 .prose
   :where(tbody td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   vertical-align: baseline;
 }
-
 .prose :where(tfoot):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  border-top-width: 1px;
   border-top-color: var(--tw-prose-th-borders);
+  border-top-width: 1px;
 }
-
 .prose
   :where(tfoot td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   vertical-align: top;
 }
-
 .prose
   :where(th, td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   text-align: start;
 }
-
 .prose
   :where(figure > *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
-
 .prose
   :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: var(--tw-prose-captions);
@@ -1008,7 +707,6 @@ video {
   line-height: 1.4285714;
   margin-top: 0.8571429em;
 }
-
 .prose {
   --tw-prose-body: #374151;
   --tw-prose-headings: #111827;
@@ -1043,720 +741,485 @@ video {
   --tw-prose-invert-kbd-shadows: 255 255 255;
   --tw-prose-invert-code: #fff;
   --tw-prose-invert-pre-code: #d1d5db;
-  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+  --tw-prose-invert-pre-bg: rgba(0, 0, 0, 0.5);
   --tw-prose-invert-th-borders: #4b5563;
   --tw-prose-invert-td-borders: #374151;
   font-size: 1rem;
   line-height: 1.75;
 }
-
 .prose
   :where(picture > img):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
-
 .prose :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 0.5em;
   margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
-
 .prose
   :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   padding-inline-start: 0.375em;
 }
-
 .prose
   :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   padding-inline-start: 0.375em;
 }
-
 .prose
   :where(.prose > ul > li p):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
-  margin-top: 0.75em;
   margin-bottom: 0.75em;
+  margin-top: 0.75em;
 }
-
 .prose
   :where(.prose > ul > li > p:first-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   margin-top: 1.25em;
 }
-
 .prose
   :where(.prose > ul > li > p:last-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   margin-bottom: 1.25em;
 }
-
 .prose
   :where(.prose > ol > li > p:first-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   margin-top: 1.25em;
 }
-
 .prose
   :where(.prose > ol > li > p:last-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   margin-bottom: 1.25em;
 }
-
 .prose
   :where(ul ul, ul ol, ol ul, ol ol):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
-  margin-top: 0.75em;
   margin-bottom: 0.75em;
+  margin-top: 0.75em;
 }
-
 .prose :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 1.25em;
   margin-bottom: 1.25em;
+  margin-top: 1.25em;
 }
-
 .prose :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 0.5em;
   padding-inline-start: 1.625em;
 }
-
 .prose
   :where(hr + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 0;
 }
-
 .prose
   :where(h2 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 0;
 }
-
 .prose
   :where(h3 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 0;
 }
-
 .prose
   :where(h4 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   margin-top: 0;
 }
-
 .prose
   :where(thead th:first-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   padding-inline-start: 0;
 }
-
 .prose
   :where(thead th:last-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   padding-inline-end: 0;
 }
-
 .prose
   :where(tbody td, tfoot td):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
-  padding-top: 0.5714286em;
   padding-inline-end: 0.5714286em;
   padding-bottom: 0.5714286em;
+  padding-top: 0.5714286em;
   padding-inline-start: 0.5714286em;
 }
-
 .prose
   :where(tbody td:first-child, tfoot td:first-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   padding-inline-start: 0;
 }
-
 .prose
   :where(tbody td:last-child, tfoot td:last-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   padding-inline-end: 0;
 }
-
 .prose
   :where(figure):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
-
 .prose
   :where(.prose > :first-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   margin-top: 0;
 }
-
 .prose
   :where(.prose > :last-child):not(
     :where([class~="not-prose"], [class~="not-prose"] *)
   ) {
   margin-bottom: 0;
 }
-
+.invisible {
+  visibility: hidden;
+}
 .fixed {
   position: fixed;
 }
-
 .relative {
   position: relative;
 }
-
 .sticky {
   position: sticky;
 }
-
+.inset-0 {
+  inset: 0;
+}
 .top-0 {
-  top: 0px;
+  top: 0;
 }
-
-.z-50 {
-  z-index: 50;
-}
-
+.z-50,
 .z-\[50\] {
   z-index: 50;
 }
-
-.-m-5 {
-  margin: -1.25rem;
+.z-\[60\] {
+  z-index: 60;
 }
-
-.-m-2\.5 {
-  margin: -0.625rem;
-}
-
-.m-0 {
-  margin: 0px;
-}
-
-.-m-\[2\.5\] {
-  margin: -2.5;
-}
-
-.-m-\[0\.5em\] {
-  margin: -0.5em;
-}
-
-.-m-\[0\.65em\] {
-  margin: -0.65em;
-}
-
-.-m-\[0\.60em\] {
-  margin: -0.6em;
-}
-
-.-m-\[0\.50em\] {
-  margin: -0.5em;
-}
-
 .-mx-1 {
   margin-left: -0.25rem;
   margin-right: -0.25rem;
 }
-
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  margin-top: 0;
 }
-
 .my-5 {
+  margin-bottom: 1.25rem;
   margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
 }
-
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
-.mr-3 {
-  margin-right: 0.75rem;
-}
-
-.mr-\[1rem\] {
-  margin-right: 1rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-\[3rem\] {
-  margin-top: 3rem;
-}
-
-.mt-\[5rem\] {
-  margin-top: 5rem;
-}
-
-.-mr-5 {
-  margin-right: -1.25rem;
-}
-
-.-mr-\[0\.3em\] {
-  margin-right: -0.3em;
-}
-
-.-mr-\[0\.50em\] {
-  margin-right: -0.5em;
-}
-
-.-mr-\[0\.2em\] {
-  margin-right: -0.2em;
-}
-
-.-mr-\[0\.60em\] {
-  margin-right: -0.6em;
-}
-
-.-mr-\[0\.65em\] {
-  margin-right: -0.65em;
-}
-
-.-mr-\[0\.5em\] {
-  margin-right: -0.5em;
-}
-
 .-mr-\[0\.6em\] {
   margin-right: -0.6em;
 }
-
-.-mr-\[0\.6rem\] {
-  margin-right: -0.6rem;
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
-
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+.mr-3 {
+  margin-right: 0.75rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-\[3rem\] {
+  margin-top: 3rem;
+}
+.mt-\[5rem\] {
+  margin-top: 5rem;
+}
 .block {
   display: block;
 }
-
 .inline {
   display: inline;
 }
-
 .flex {
   display: flex;
 }
-
 .table {
   display: table;
 }
-
 .hidden {
   display: none;
 }
-
 .aspect-square {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
 }
-
-.h-5 {
-  height: 1.25rem;
-}
-
 .h-\[1\.3rem\] {
   height: 1.3rem;
 }
-
-.h-\[9rem\] {
-  height: 9rem;
+.h-\[1\.4rem\] {
+  height: 1.4rem;
 }
-
-.h-full {
-  height: 100%;
+.h-\[1\.5rem\] {
+  height: 1.5rem;
 }
-
-.h-screen {
-  height: 100vh;
-}
-
 .h-\[1em\] {
   height: 1em;
 }
-
-.h-1 {
-  height: 0.25rem;
+.h-\[9rem\] {
+  height: 9rem;
 }
-
-.h-\[0\.5\] {
-  height: 0.5;
+.h-full {
+  height: 100%;
 }
-
-.h-\[1rem\] {
-  height: 1rem;
+.h-screen {
+  height: 100vh;
 }
-
-.h-\[0\.7em\] {
-  height: 0.7em;
-}
-
-.h-\[0\.7rem\] {
-  height: 0.7rem;
-}
-
-.h-max {
-  height: -moz-max-content;
-  height: max-content;
-}
-
 .min-h-0 {
-  min-height: 0px;
+  min-height: 0;
 }
-
-.w-5 {
-  width: 1.25rem;
-}
-
 .w-\[1\.3rem\] {
   width: 1.3rem;
 }
-
+.w-\[1\.4rem\] {
+  width: 1.4rem;
+}
+.w-\[1\.5rem\] {
+  width: 1.5rem;
+}
+.w-\[1em\] {
+  width: 1em;
+}
 .w-\[70\%\] {
   width: 70%;
 }
-
 .w-\[9rem\] {
   width: 9rem;
 }
-
 .w-auto {
   width: auto;
 }
-
 .w-full {
   width: 100%;
 }
-
 .w-max {
   width: -moz-max-content;
   width: max-content;
 }
-
-.w-\[1em\] {
-  width: 1em;
-}
-
-.w-1 {
-  width: 0.25rem;
-}
-
-.w-\[0\.5\] {
-  width: 0.5;
-}
-
-.w-\[0\.7em\] {
-  width: 0.7em;
-}
-
-.w-\[0\.7rem\] {
-  width: 0.7rem;
-}
-
-.w-\[1rem\] {
-  width: 1rem;
-}
-
-.min-w-\[25\%\] {
-  min-width: 25%;
-}
-
 .min-w-\[15\%\] {
   min-width: 15%;
 }
-
 .max-w-full {
   max-width: 100%;
 }
-
 .max-w-prose {
   max-width: 65ch;
 }
-
-.max-w-\[10em\] {
-  max-width: 10em;
-}
-
-.max-w-\[60em\] {
-  max-width: 60em;
-}
-
-.max-w-\[30em\] {
-  max-width: 30em;
-}
-
 .shrink-0 {
   flex-shrink: 0;
 }
-
 .grow {
   flex-grow: 1;
 }
-
 .cursor-grab {
   cursor: grab;
 }
-
+.cursor-pointer {
+  cursor: pointer;
+}
 .select-none {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
-
 .flex-col {
   flex-direction: column;
 }
-
 .items-start {
   align-items: flex-start;
 }
-
 .items-end {
   align-items: flex-end;
 }
-
 .items-center {
   align-items: center;
 }
-
 .justify-end {
   justify-content: flex-end;
 }
-
 .justify-center {
   justify-content: center;
 }
-
 .justify-between {
   justify-content: space-between;
 }
-
 .justify-around {
   justify-content: space-around;
 }
-
 .gap-1 {
   gap: 0.25rem;
 }
-
 .gap-2 {
   gap: 0.5rem;
 }
-
 .gap-5 {
   gap: 1.25rem;
 }
-
 .gap-x-4 {
   -moz-column-gap: 1rem;
   column-gap: 1rem;
 }
-
 .gap-x-5 {
   -moz-column-gap: 1.25rem;
   column-gap: 1.25rem;
 }
-
 .overflow-hidden {
   overflow: hidden;
 }
-
 .text-nowrap {
   text-wrap: nowrap;
 }
-
 .text-pretty {
   text-wrap: pretty;
 }
-
 .rounded-full {
   border-radius: 9999px;
 }
-
-.border-\[0\.3em\] {
-  border-width: 0.3em;
-}
-
 .border-\[0\.1em\] {
   border-width: 0.1em;
 }
-
-.border-r-\[3px\] {
-  border-right-width: 3px;
-}
-
-.border-r-\[0\.5em\] {
-  border-right-width: 0.5em;
-}
-
-.border-r-\[0\.1em\] {
-  border-right-width: 0.1em;
-}
-
 .border-r-\[0\.3em\] {
   border-right-width: 0.3em;
 }
-
-.border-r-\[0\.3rem\] {
-  border-right-width: 0.3rem;
-}
-
 .border-solid {
   border-style: solid;
 }
-
 .border-dashed {
   border-style: dashed;
 }
-
-.border-none {
-  border-style: none;
-}
-
-.border-neutral-50 {
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-neutral-50) / var(--tw-border-opacity, 1));
-}
-
 .border-neutral-800 {
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-neutral-800) / var(--tw-border-opacity, 1));
 }
-
-.border-transparent {
-  border-color: transparent;
-}
-
-.border-neutral {
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-neutral) / var(--tw-border-opacity, 1));
-}
-
 .bg-neutral {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral) / var(--tw-bg-opacity, 1));
 }
-
 .bg-neutral-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral-800) / var(--tw-bg-opacity, 1));
 }
-
+.bg-neutral\/90 {
+  background-color: rgb(var(--color-neutral) / 0.9);
+}
 .p-5 {
   padding: 1.25rem;
 }
-
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-
 .py-1 {
   padding-top: 0.25rem;
+}
+.pb-1,
+.py-1 {
   padding-bottom: 0.25rem;
 }
-
+.pb-8 {
+  padding-bottom: 2rem;
+}
+.pt-4 {
+  padding-top: 1rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
 .pt-\[2\.25rem\] {
   padding-top: 2.25rem;
 }
-
 .text-center {
   text-align: center;
 }
-
 .text-right {
   text-align: right;
 }
-
 .font-mono {
   font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
 }
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
 }
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
-
 .text-\[12rem\] {
   font-size: 12rem;
 }
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-
 .font-bold {
   font-weight: 700;
 }
-
 .font-extrabold {
   font-weight: 800;
 }
-
 .leading-7 {
   line-height: 1.75rem;
 }
-
 .text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(var(--color-neutral-500) / var(--tw-text-opacity, 1));
 }
-
 .text-neutral-900 {
   --tw-text-opacity: 1;
   color: rgb(var(--color-neutral-900) / var(--tw-text-opacity, 1));
 }
-
 .underline {
   text-decoration-line: underline;
 }
-
 .no-underline {
   text-decoration-line: none;
 }
-
 .decoration-2 {
   text-decoration-thickness: 2px;
 }
-
-.outline-neutral-50 {
-  outline-color: rgb(var(--color-neutral-50) / 1);
+.opacity-0 {
+  opacity: 0;
 }
-
 .backdrop-blur-md {
   --tw-backdrop-blur: blur(12px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
@@ -1770,118 +1233,102 @@ video {
     var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
     var(--tw-backdrop-sepia);
 }
-
+.transition-\[opacity\2c visibility\] {
+  transition-duration: 0.15s;
+  transition-property: opacity, visibility;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.duration-300 {
+  transition-duration: 0.3s;
+}
 .will-change-transform {
   will-change: transform;
 }
-
-/* dark mode */
-
 html:not(.dark) {
   color-scheme: light;
   --boid-color: rgb(var(--color-neutral-800));
 }
-
 html.dark {
   color-scheme: dark;
   --boid-color: rgb(var(--color-neutral));
 }
-
-/* htmx transitions */
-
 :root {
   --page-transition-duration: 500ms;
 }
-
 body {
   overflow-x: hidden;
 }
-
 #page {
   view-transition-name: page;
 }
-
 ::view-transition-group(page) {
   animation-duration: var(--page-transition-duration);
   animation-timing-function: ease;
 }
-
 html[data-nav-direction="ltr"]::view-transition-old(page) {
+  animation-duration: var(--page-transition-duration);
+  animation-fill-mode: both;
   animation-name: page-slide-out-right;
-  animation-duration: var(--page-transition-duration);
   animation-timing-function: ease;
-  animation-fill-mode: both;
 }
-
 html[data-nav-direction="ltr"]::view-transition-new(page) {
+  animation-duration: var(--page-transition-duration);
+  animation-fill-mode: both;
   animation-name: page-slide-in-left;
-  animation-duration: var(--page-transition-duration);
   animation-timing-function: ease;
-  animation-fill-mode: both;
 }
-
 html[data-nav-direction="rtl"]::view-transition-old(page) {
+  animation-duration: var(--page-transition-duration);
+  animation-fill-mode: both;
   animation-name: page-slide-out-left;
-  animation-duration: var(--page-transition-duration);
   animation-timing-function: ease;
-  animation-fill-mode: both;
 }
-
 html[data-nav-direction="rtl"]::view-transition-new(page) {
-  animation-name: page-slide-in-right;
   animation-duration: var(--page-transition-duration);
-  animation-timing-function: ease;
   animation-fill-mode: both;
+  animation-name: page-slide-in-right;
+  animation-timing-function: ease;
 }
-
 @keyframes page-slide-out-right {
-  from {
+  0% {
     opacity: 1;
     transform: translateX(0);
   }
-
   to {
     opacity: 1;
     transform: translateX(100%);
   }
 }
-
 @keyframes page-slide-in-left {
-  from {
+  0% {
     opacity: 1;
     transform: translateX(-100%);
   }
-
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-
 @keyframes page-slide-out-left {
-  from {
+  0% {
     opacity: 1;
     transform: translateX(0);
   }
-
   to {
     opacity: 1;
     transform: translateX(-100%);
   }
 }
-
 @keyframes page-slide-in-right {
-  from {
+  0% {
     opacity: 1;
     transform: translateX(100%);
   }
-
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-
 .dark\:prose-invert:is(.dark *) {
   --tw-prose-body: var(--tw-prose-invert-body);
   --tw-prose-headings: var(--tw-prose-invert-headings);
@@ -1902,58 +1349,71 @@ html[data-nav-direction="rtl"]::view-transition-new(page) {
   --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
-
-.dark\:border-neutral-50:is(.dark *) {
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-neutral-50) / var(--tw-border-opacity, 1));
+.peer\/mobile-menu:checked ~ .peer-checked\/mobile-menu\:visible {
+  visibility: visible;
 }
-
+.peer\/mobile-menu:checked ~ .peer-checked\/mobile-menu\:opacity-100 {
+  opacity: 1;
+}
 .dark\:border-neutral:is(.dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-neutral) / var(--tw-border-opacity, 1));
 }
-
 .dark\:bg-neutral-100:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral-100) / var(--tw-bg-opacity, 1));
 }
-
 .dark\:bg-neutral-800:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-neutral-800) / var(--tw-bg-opacity, 1));
 }
-
+.dark\:bg-neutral-800\/90:is(.dark *) {
+  background-color: rgb(var(--color-neutral-800) / 0.9);
+}
 .dark\:text-neutral:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(var(--color-neutral) / var(--tw-text-opacity, 1));
 }
-
 .dark\:text-neutral-400:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(var(--color-neutral-400) / var(--tw-text-opacity, 1));
 }
-
 @media (min-width: 640px) {
   .sm\:px-14 {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
   }
+  .sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
-
 @media (min-width: 768px) {
+  .md\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
   .md\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
   }
 }
-
 @media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+  .lg\:hidden {
+    display: none;
+  }
   .lg\:px-32 {
     padding-left: 8rem;
     padding-right: 8rem;
   }
+  .lg\:py-1 {
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+  }
 }
-
 .\[\&\.is-dragging\]\:cursor-grabbing.is-dragging {
   cursor: grabbing;
 }
