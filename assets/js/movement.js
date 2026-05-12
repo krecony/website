@@ -92,6 +92,5 @@
     if (!isBoosted || !swappedPage) return;
     closeMobileMenu();
     syncCurrentNavUnderline();
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   });
 })();
