@@ -1,6 +1,16 @@
 title = "krecony.dev"
 
 [[params.projects]]
+name = "Personal Website"
+techstack = "Hugo | TailwindCSS | JavaScript"
+startdate = "May 2026"
+bullets = [
+	"This is the website you are on right now!",
+	"Made it using the templating engine hugo, tailwindcss, and vanilla javascript",
+]
+repo = "https://github.com/krecony/website"
+
+[[params.projects]]
 name = "FoodPal"
 techstack = "Java | JavaFX | Maven | SpringBoot"
 startdate = "Nov. 2025"
