@@ -1,9 +1,21 @@
 title = "krecony.dev"
 
 [[params.projects]]
-name = "Personal Website"
+name = "dotfiles"
+techstack = "Nix"
+startdate = "Mar. 2024"
+enddate = "Current"
+bullets = [
+	"My personal NixOS config supporting three different devices with full configuration of the desktop experience under GNOME",
+	"Multiple security features include secure boot, measured boot via tpm, full disk encryption, kernel module blacklisting, and more"
+]
+repo = "https://github.com/krecony/dotfiles"
+
+[[params.projects]]
+name = "personal website"
 techstack = "Hugo | TailwindCSS | JavaScript"
 startdate = "May 2026"
+enddate = "Current"
 bullets = [
 	"This is the website you are on right now!",
 	"Made it using the templating engine hugo, tailwindcss, and vanilla javascript",
@@ -11,7 +23,7 @@ bullets = [
 repo = "https://github.com/krecony/website"
 
 [[params.projects]]
-name = "FoodPal"
+name = "foodpal"
 techstack = "Java | JavaFX | Maven | SpringBoot"
 startdate = "Nov. 2025"
 enddate = "Jan. 2026"
@@ -21,7 +33,7 @@ bullets = [
 ]
 
 [[params.projects]]
-name = "Multilayer Perceptron"
+name = "multilayer perceptron"
 techstack = "Python | Numpy | Jupyter"
 startdate = "Oct. 2025"
 bullets = [
