@@ -17,3 +17,53 @@ html.dark {
 body {
   overflow-x: hidden;
 }
+
+.home {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}
+
+.home-author {
+  /* Offset the space reserved for the fixed navigation. */
+  transform: translateY(-1.125rem);
+}
+
+.home-boids {
+  display: none;
+  min-height: 0;
+  height: 100%;
+}
+
+@media (min-width: 768px) and (min-height: 700px) {
+  .home {
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 2rem;
+  }
+
+  .home-author {
+    transform: none;
+  }
+
+  .home-boids {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) and (min-height: 500px) {
+  .home {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+    gap: 0;
+    padding-block: 0;
+  }
+
+  .home-author {
+    transform: none;
+  }
+
+  .home-boids {
+    display: block;
+  }
+}
