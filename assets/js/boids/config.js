@@ -1,4 +1,4 @@
-let g = {
+const g = {
   width: 0,
   height: 0,
 
@@ -22,9 +22,8 @@ let g = {
   click_strength: 1,
 
   mouse: {
-    x: undefined,
-    y: undefined,
-    over: false,
+    x: 0,
+    y: 0,
     down: false,
   },
 
@@ -32,7 +31,7 @@ let g = {
   boid_count: 750,
   boid_color: "#000",
 
-  fps: 60,
+  fps: 30,
 
   circle: {
     boundary: true,
