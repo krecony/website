@@ -1,62 +1,54 @@
-const sitePreference = document.documentElement.getAttribute(
-  "data-default-appearance",
-);
-const userPreference = localStorage.getItem("appearance");
+(() => {
+  const root = document.documentElement;
+  const sitePreference = root.dataset.defaultAppearance;
+  const userPreference = localStorage.getItem("appearance");
+  const autoAppearance = root.dataset.autoAppearance === "true";
+  const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-if (
-  (sitePreference === "dark" && userPreference === null) ||
-  userPreference === "dark"
-) {
-  document.documentElement.classList.add("dark");
-}
-
-if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches &&
-    userPreference !== "light"
-  ) {
-    document.documentElement.classList.add("dark");
-  }
-
-  const colorSchemeMediaQuery = window.matchMedia(
-    "(prefers-color-scheme: dark)",
+  root.classList.toggle(
+    "dark",
+    userPreference === "dark" ||
+      (userPreference !== "light" &&
+        (sitePreference === "dark" || (autoAppearance && colorScheme.matches))),
   );
-  const handleColorSchemeChange = (event) => {
-    if (localStorage.getItem("appearance") === null) {
-      document.documentElement.classList.toggle("dark", event.matches);
+
+  // Theme selection must run immediately; the controls need the parsed DOM.
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      const buttons = document.querySelectorAll("[data-mode-toggle]");
+
+      function updateIcons() {
+        const darkMode = root.classList.contains("dark");
+        for (const button of buttons) {
+          button
+            .querySelector('[data-mode-icon="moon"]')
+            .classList.toggle("hidden", !darkMode);
+          button
+            .querySelector('[data-mode-icon="sun"]')
+            .classList.toggle("hidden", darkMode);
+        }
+      }
+
+      for (const button of buttons) {
+        button.addEventListener("click", () => {
+          const darkMode = root.classList.toggle("dark");
+          localStorage.setItem("appearance", darkMode ? "dark" : "light");
+          updateIcons();
+        });
+      }
+
+      if (autoAppearance) {
+        colorScheme.addEventListener("change", (event) => {
+          if (localStorage.getItem("appearance") === null) {
+            root.classList.toggle("dark", event.matches);
+            updateIcons();
+          }
+        });
+      }
+
       updateIcons();
-    }
-  };
-  colorSchemeMediaQuery.addEventListener("change", handleColorSchemeChange);
-}
-
-const darkModeButtons = Array.from(
-  document.querySelectorAll("[data-mode-toggle]"),
-);
-
-const updateIcons = () => {
-  const darkMode = document.documentElement.classList.contains("dark");
-
-  darkModeButtons.forEach((button) => {
-    const darkModeIcon = button.querySelector('[data-mode-icon="moon"]');
-    const lightModeIcon = button.querySelector('[data-mode-icon="sun"]');
-    if (!darkModeIcon || !lightModeIcon) return;
-
-    darkModeIcon.classList.toggle("hidden", !darkMode);
-    lightModeIcon.classList.toggle("hidden", darkMode);
-  });
-};
-
-darkModeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    localStorage.setItem(
-      "appearance",
-      document.documentElement.classList.contains("dark") ? "dark" : "light",
-    );
-    updateIcons();
-  });
-});
-
-updateIcons();
+    },
+    { once: true },
+  );
+})();
