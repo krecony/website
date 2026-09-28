@@ -25,6 +25,7 @@ if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
   const handleColorSchemeChange = (event) => {
     if (localStorage.getItem("appearance") === null) {
       document.documentElement.classList.toggle("dark", event.matches);
+      updateIcons();
     }
   };
   colorSchemeMediaQuery.addEventListener("change", handleColorSchemeChange);
@@ -50,6 +51,10 @@ const updateIcons = () => {
 darkModeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     document.documentElement.classList.toggle("dark");
+    localStorage.setItem(
+      "appearance",
+      document.documentElement.classList.contains("dark") ? "dark" : "light",
+    );
     updateIcons();
   });
 });

@@ -7,12 +7,11 @@
   <div class="mx-auto w-full px-4 sm:px-8 md:px-12">
     <nav class="font-mono flex items-center justify-center">
       <div class="hidden lg:flex items-center justify-center gap-x-4">
-        {{ range $i, $item := .Site.Menus.main }}
+        {{ range $item := .Site.Menus.main }}
         {{ $itemURL := $item.URL | relURL }}
         {{ $itemPath := strings.TrimSuffix "/" $itemURL }}
         {{ $isCurrent := eq $itemPath $currentPath }}
         <a href="{{ $itemURL }}"
-           data-nav-order="{{ $i }}"
            class="font-bold decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
         {{ end }}
         <button data-mode-toggle type="button" aria-label="Toggle color mode">
@@ -52,13 +51,11 @@
       </label>
     </div>
     <nav class="flex flex-col gap-5 mt-12 font-mono">
-      {{ range $i, $item := .Site.Menus.main }}
+      {{ range $item := .Site.Menus.main }}
       {{ $itemURL := $item.URL | relURL }}
       {{ $itemPath := strings.TrimSuffix "/" $itemURL }}
       {{ $isCurrent := eq $itemPath $currentPath }}
       <a href="{{ $itemURL }}"
-         data-nav-order="{{ $i }}"
-         data-mobile-nav-link
          class="font-bold text-3xl decoration-2 {{ if $isCurrent }}underline{{ else }}no-underline{{ end }}">{{ $item.Name }}</a>
       {{ end }}
     </nav>

@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
 <div class="flex flex-col mt-10 lg:mt-0 w-full h-full overflow-hidden relative justify-around">
   <div class="font-mono flex flex-col justify-center items-center text-center lg:absolute lg:left-1/4 lg:transform lg:-translate-x-1/2 lg:h-full lg:justify-center">
     <div class="prose dark:prose-invert">
@@ -18,4 +17,6 @@
   </div>
   <div class="w-full h-2/3 lg:absolute lg:right-0 lg:h-full lg:w-1/2 flex-shrink-0">{{ partial "boids.html" . }}</div>
 </div>
+{{ $boids := slice (resources.Get "js/boids/config.js") (resources.Get "js/boids/boid.js") (resources.Get "js/boids/flock.js") (resources.Get "js/boids/main.js") | resources.Concat "js/boids.js" | resources.Minify }}
+<script src="{{ $boids.RelPermalink }}" defer></script>
 {{ end }}

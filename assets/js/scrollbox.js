@@ -6,9 +6,7 @@ document.querySelectorAll("[data-marquee]").forEach((track) => {
   let isDown = false;
   let startX = 0;
   let currentX = 0;
-  let velocity = 0;
   let lastX = 0;
-  let rafId = null;
 
   function ensureCoverage() {
     const items = Array.from(lane.children);
@@ -34,7 +32,7 @@ document.querySelectorAll("[data-marquee]").forEach((track) => {
 
     lane.style.transform = `translateX(${-x}px)`;
 
-    rafId = requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
   }
 
   const handleResize = () => ensureCoverage();
@@ -68,19 +66,6 @@ document.querySelectorAll("[data-marquee]").forEach((track) => {
     currentX = lastX - dx;
   };
 
-  const cleanup = () => {
-    if (rafId !== null) {
-      cancelAnimationFrame(rafId);
-    }
-    window.removeEventListener("resize", handleResize);
-    window.removeEventListener("mouseup", handleMouseUp);
-    window.removeEventListener("mousemove", handleMouseMove);
-    track.removeEventListener("mousedown", handleMouseDown);
-    track.removeEventListener("touchstart", handleTouchStart);
-    track.removeEventListener("touchend", handleTouchEnd);
-    track.removeEventListener("touchmove", handleTouchMove);
-  };
-
   const handleMouseDown = (e) => {
     isDown = true;
     track.classList.add("is-dragging");
@@ -99,11 +84,4 @@ document.querySelectorAll("[data-marquee]").forEach((track) => {
   track.addEventListener("touchstart", handleTouchStart);
   track.addEventListener("touchend", handleTouchEnd);
   track.addEventListener("touchmove", handleTouchMove);
-
-  // Cleanup when element is removed from DOM
-  document.addEventListener("htmx:beforeCleanupElement", (event) => {
-    if (event.detail.elt === track) {
-      cleanup();
-    }
-  });
 });

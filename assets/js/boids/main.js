@@ -1,24 +1,21 @@
 (() => {
-  let canvas = null;
-  let ctx = null;
+  const canvas = document.getElementById("bird_canvas");
+  const ctx = canvas?.getContext("2d");
+  if (!ctx) return;
+
   let flock = null;
-  let listeners = null;
   let inViewport = false;
   let frameId = null;
   let lastUpdate = 0;
   let lastFrame = 0;
 
   function draw() {
-    if (!ctx || !flock) return;
+    if (!flock) return;
     ctx.clearRect(0, 0, g.width, g.height);
     flock.draw(ctx);
   }
 
   function animate(now) {
-    if (!canvas.isConnected) {
-      syncCanvas();
-      return;
-    }
     const elapsed = now - lastFrame;
     if (elapsed >= g.frame_time - 0.1) {
       flock.update((Math.min(now - lastUpdate, 100) * 60) / 1000);
@@ -32,13 +29,7 @@
 
   function syncRunning() {
     const running =
-      canvas &&
-      ctx &&
-      flock &&
-      inViewport &&
-      g.width > 0 &&
-      g.height > 0 &&
-      document.visibilityState === "visible";
+      flock && inViewport && document.visibilityState === "visible";
     if (running && frameId === null) {
       lastUpdate = lastFrame = performance.now();
       frameId = requestAnimationFrame(animate);
@@ -50,7 +41,6 @@
   }
 
   function resize() {
-    if (!canvas || !ctx) return;
     const rect = canvas.getBoundingClientRect();
     const width = Math.max(0, Math.floor(rect.width));
     const height = Math.max(0, Math.floor(rect.height));
@@ -109,11 +99,8 @@
     g.mouse.y = ((event.clientY - rect.top) * g.height) / rect.height;
   }
 
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.target !== canvas) continue;
-      inViewport = entry.isIntersecting && entry.intersectionRatio > 0;
-    }
+  const intersectionObserver = new IntersectionObserver(([entry]) => {
+    inViewport = entry.isIntersecting && entry.intersectionRatio > 0;
     syncRunning();
   });
   const resizeObserver = new ResizeObserver(resize);
@@ -123,48 +110,25 @@
     attributeFilter: ["class"],
   });
 
-  function syncCanvas() {
-    const nextCanvas = document.getElementById("bird_canvas");
-    if (nextCanvas === canvas) return;
-    cancelAnimationFrame(frameId);
-    frameId = null;
-    listeners?.abort();
-    intersectionObserver.disconnect();
-    resizeObserver.disconnect();
-    releasePointer();
-    canvas = nextCanvas;
-    ctx = canvas?.getContext("2d");
-    if (!ctx) return;
-
-    listeners = new AbortController();
-    const options = { signal: listeners.signal, passive: true };
-    canvas.addEventListener(
-      "pointerdown",
-      (event) => {
-        if (frameId === null || !event.isPrimary || event.button !== 0) return;
-        g.mouse.down = true;
-        movePointer(event);
-      },
-      options,
-    );
-    canvas.addEventListener("pointermove", movePointer, options);
-    canvas.addEventListener("pointerleave", releasePointer, options);
-    canvas.addEventListener("pointercancel", releasePointer, options);
-    window.addEventListener("pointerup", releasePointer, options);
-    window.addEventListener("blur", releasePointer, options);
-    updateTheme();
-    resize();
-    intersectionObserver.observe(canvas);
-    resizeObserver.observe(canvas);
-  }
+  canvas.addEventListener(
+    "pointerdown",
+    (event) => {
+      if (frameId === null || !event.isPrimary || event.button !== 0) return;
+      g.mouse.down = true;
+      movePointer(event);
+    },
+    { passive: true },
+  );
+  canvas.addEventListener("pointermove", movePointer, { passive: true });
+  canvas.addEventListener("pointerleave", releasePointer);
+  canvas.addEventListener("pointercancel", releasePointer);
+  window.addEventListener("pointerup", releasePointer);
+  window.addEventListener("blur", releasePointer);
 
   window.addEventListener("resize", resize);
   document.addEventListener("visibilitychange", syncRunning);
-  document.addEventListener("htmx:afterSwap", syncCanvas);
-  document.addEventListener("htmx:historyRestore", syncCanvas);
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", syncCanvas, { once: true });
-  } else {
-    syncCanvas();
-  }
+  updateTheme();
+  resize();
+  intersectionObserver.observe(canvas);
+  resizeObserver.observe(canvas);
 })();
