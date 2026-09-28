@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="mt-5 font-mono flex justify-center">
+  <section class="w-full lg:w-[70%] mb-10" aria-labelledby="posts-title">
+    <header class="my-5">
+      <h1 id="posts-title"
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold">{{ .Title }}</h1>
+    </header>
+    {{ with .Content }}
+    <div class="prose dark:prose-invert max-w-full mb-8">{{ . }}</div>
+    {{ end }}
+    <div class="divide-y divide-neutral-300 dark:divide-neutral-600">
+      {{ range .RegularPagesRecursive.ByDate.Reverse }}
+      <article class="py-8">
+        <h2 class="text-xl sm:text-2xl font-semibold leading-snug">
+          <a href="{{ .RelPermalink }}" class="underline-offset-4 hover:underline">{{ .Title }}</a>
+        </h2>
+        {{ if not .Date.IsZero }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}"
+              class="block mt-2 text-xs text-neutral-500 dark:text-neutral-400">{{ .Date.Format "Jan 2, 2006" }}</time>
+        {{ end }}
+        <p class="mt-4 text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300">
+          {{ .Summary | plainify | htmlUnescape | truncate 280 }}
+        </p>
+        <a href="{{ .RelPermalink }}"
+           aria-label="Read more: {{ .Title }}"
+           class="inline-block mt-4 text-sm font-medium underline-offset-4 hover:underline">read more <span aria-hidden="true">→</span></a>
+      </article>
+    {{ else }}
+      <p class="py-8 text-neutral-500 dark:text-neutral-400">No posts yet.</p>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}
