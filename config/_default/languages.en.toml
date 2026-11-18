@@ -1,6 +1,19 @@
 title = "krecony.dev"
 
 [[params.projects]]
+name = "live hand and palm joint tracking (WIP)"
+techstack = "Python | PyTorch | COCO | FreiHAND"
+startdate = "Oct. 2026"
+enddate = "Current"
+bullets = [
+	"Two-stage pipeline for tracking joints of multiple hands in an image",
+	"First stage uses a Single-shot MultiBox Detection (SSD)-based model to find palms in an image",
+	"The second stage uses a ResNet-18 model to track 21 keypoints per hand",
+	"The pipeline is fast enough to run in real time"
+]
+repo = "https://github.com/krecony/hands"
+
+[[params.projects]]
 name = "dotfiles"
 techstack = "Nix"
 startdate = "Mar. 2024"
